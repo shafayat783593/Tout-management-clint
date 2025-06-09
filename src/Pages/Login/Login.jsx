@@ -5,6 +5,7 @@ import './Login.css'
 import { motion } from "framer-motion"
 import { ToastContainer } from 'react-toastify'
 
+
 function Login() {
     const location = useLocation()
     const Nagavite = useNavigate()
@@ -12,8 +13,6 @@ function Login() {
 
     const [error, seterror] = useState("")
     const handelSubmit = (e) => {
-
-
         e.preventDefault()
 
 
@@ -82,7 +81,7 @@ function Login() {
 
                         className="form shadow-2xl ">
                         <p className="title">Login</p>
-                        <p className="message">Login now and get full access to our app.</p>
+                        <p className="message">Signup now and get full access to our app.</p>
 
                         <label>
                             <input required placeholder="" name='email' type="email" className="input" />
@@ -119,7 +118,6 @@ function Login() {
                 <ToastContainer />
 
             </div>
-
         </div>
     )
 }

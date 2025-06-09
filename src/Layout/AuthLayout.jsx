@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar/Navbar'
 import { Outlet } from 'react-router'
 
 function AuthLayout() {
-  return (
+    return (
         <>
 
 
@@ -15,7 +15,7 @@ function AuthLayout() {
                 <Outlet />
             </main>
 
-           
+
 
         </>
     )

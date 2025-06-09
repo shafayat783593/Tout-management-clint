@@ -27,7 +27,7 @@ function Navbar() {
     const navigation = (
         <>
             <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : "text-black"} dark:text-white m-2 font-medium text-xl hover:text-[#378acf]`} to="/">Home</NavLink>
-            <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : "text-black"} dark:text-white m-2 font-medium text-xl hover:text-[#378acf]`} to="/addtask">All Packages</NavLink>
+            <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : "text-black"} dark:text-white m-2 font-medium text-xl hover:text-[#378acf]`} to="/all-packages">All Packages</NavLink>
             <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : "text-black"} dark:text-white m-2 font-medium text-xl hover:text-[#378acf]`} to="/browseetask">About Us</NavLink>
             {
                 user && <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : "text-black"} dark:text-white m-2 font-medium text-xl hover:text-[#378acf]`} to="/mypostedtask">My Bookings</NavLink>
@@ -39,8 +39,8 @@ function Navbar() {
     const profileDropdown = (
         <>
 
-            <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : "text-black"} dark:text-white m-2 font-medium text-xl hover:text-[#378acf]`} to="/mypostedtask">Add Package</NavLink>
-            <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : "text-black"} dark:text-white m-2 font-medium text-xl hover:text-[#378acf]`} to="/mypostedtask">Manage My Packages</NavLink>
+            <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : "text-black"} dark:text-white m-2 font-medium text-xl hover:text-[#378acf]`} to="/add-pakage">Add Package</NavLink>
+            <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : "text-black"} dark:text-white m-2 font-medium text-xl hover:text-[#378acf]`} to="/manageMyPackages">Manage My Packages</NavLink>
 
 
         </>
