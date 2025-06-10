@@ -11,6 +11,7 @@ function Navbar() {
     // const { darkMode, setdarkMode } = use(ThemContext)
 
     const { user, logOut } = UseAuth()
+    console.log(user?.photoURL)
 
 
 
