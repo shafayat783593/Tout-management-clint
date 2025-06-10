@@ -1,73 +1,29 @@
 
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import banner  from "../../assets/tourbanner.jpg"
-const packages = [
-  {
-    id: 1,
-    title: "Dhaka to Cox’s Bazar Tour",
-    guide: "John Smith",
-    guideImg: "https://i.pravatar.cc/40?img=1",
-    duration: "3 Days. 2 Nights",
-    date: "May 13, 2024",
-    price: "$500",
-    image: "https://source.unsplash.com/400x250/?beach",
-  },
-  {
-    id: 2,
-    title: "Ladakh Adventure",
-    guide: "Sarah Green",
-    guideImg: "https://i.pravatar.cc/40?img=2",
-    duration: "6 Days. 5.3 Nights",
-    date: "June 10, 2024",
-    price: "$1200",
-    image: "https://source.unsplash.com/400x250/?mountain",
-  },
-  {
-    id: 3,
-    title: "Bangkok City Tour",
-    guide: "David Brown",
-    guideImg: "https://i.pravatar.cc/40?img=3",
-    duration: "4 Days. 3 Nights",
-    date: "April 20, 2024",
-    price: "$800",
-    image: "https://source.unsplash.com/400x250/?city,temple",
-  },
-  {
-    id: 4,
-    title: "Grand Canyon Expedition",
-    guide: "Emily White",
-    guideImg: "https://i.pravatar.cc/40?img=4",
-    duration: "5 Days. 4 Nights",
-    date: "July 6, 2024",
-    price: "$1500",
-    image: "https://source.unsplash.com/400x250/?canyon",
-  },
-  {
-    id: 5,
-    title: "Cairo and Nile Cruise",
-    guide: "Michael Lee",
-    guideImg: "https://i.pravatar.cc/40?img=5",
-    duration: "7 Days. 6 Nights",
-    date: "August 12, 2024",
-    price: "$1800",
-    image: "https://source.unsplash.com/400x250/?pyramids",
-  },
-  {
-    id: 6,
-    title: "Santorini Getaway",
-    guide: "Emma Davis",
-    guideImg: "https://i.pravatar.cc/40?img=6",
-    duration: "4 Days. 3 Nights",
-    date: "September 5, 2024",
-    price: "$1100",
-    image: "https://source.unsplash.com/400x250/?santorini",
-  },
-];
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Loading from "../Loading/Loading";
+
 
 export default function Home() {
-  const navigate = useNavigate();
+  const [loading, setloading] = useState(true)
+  const [packages, setpackages] = useState([])
+  useEffect(() => {
 
+    axios("http://localhost:3000/appTourPackages").then(res => {
+      setpackages(res.data)
+      setloading(false)
+    }).catch(error => {
+      console.error(error);
+      setloading(false); // 
+    })
+  }, [])
+
+  const navigate = useNavigate();
+  if (loading) <Loading/>
+  
   return (
     <div className="text-center px-4">
       {/* Hero Banner */}
@@ -108,7 +64,7 @@ export default function Home() {
       <section className="py-16">
         <h2 className="text-3xl font-bold mb-10">Featured Packages</h2>
         <div className="grid md:grid-cols-3 gap-8">
-          {packages.map((pkg, i) => (
+          {packages.slice(0,6).map((pkg, i) => (
             <motion.div
               key={pkg.id}
               className="bg-white shadow-md rounded-xl overflow-hidden"

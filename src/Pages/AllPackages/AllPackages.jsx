@@ -1,19 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useLoaderData, useNavigate } from "react-router";
 import UseAuth from "../../Hooks/UseAuth";
+import axios from "axios";
+import Loading from "../../components/Loading/Loading";
 
 function AllPackages() {
     const [searchTerm, setSearchTerm] = useState("");
+    const [loading, setloading] = useState(true)
+    const [TourData, setTourData] = useState([])
     const { user } = UseAuth();
     const navigate = useNavigate();
+    useEffect(() => {
 
-    const TourData = useLoaderData();
+        axios("http://localhost:3000/appTourPackages").then(res => {
+            setTourData(res.data)
+            setloading(false)
+        }).catch(error => {
+            console.error(error);
+            setloading(false); // 
+        })
+    }, [])
+
+
+
+    // const TourData = useLoaderData();
 
     // Filtered tours by search term
     const filteredTours = TourData.filter((tour) =>
         tour?.tourName?.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+
+
+    if (loading) {
+        return (
+           <Loading/>
+          
+        )}
 
     return (
         <div className="px-4 py-12 max-w-7xl mx-auto">
@@ -70,7 +94,7 @@ function AllPackages() {
                             >
                                 View Details
                             </button>
-                          
+
                         </div>
                     </motion.div>
                 ))}

@@ -10,6 +10,7 @@ import AllPackages from "../Pages/AllPackages/AllPackages";
 import PackageDetails from "../Pages/PackageDetails/PackageDetails";
 import ManageMyPackages from "../Pages/ManageMyPackage/ManageMyPackages";
 import UpdateMyPosted from "../Pages/UpdateMyPosted/UpdateMyPosted";
+import Loading from "../components/Loading/Loading";
 
 
 
@@ -21,19 +22,22 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 path: "/",
-                Component: Home
+                loader: () => fetch("http://localhost:3000/appTourPackages"),
+                HydrateFallback: Loading,
+                Component: Home,
+              
+               
 
             }, {
                 path: "all-packages",
-                loader: () => fetch("http://localhost:3000/appTourPackages"),
+                // loader: () => fetch("http://localhost:3000/appTourPackages"),
+                HydrateFallback: Loading,
                 Component: AllPackages
-
-
-
 
             }, {
                 path: "PackageDetails/:id",
                 loader: ({ params }) => fetch(`http://localhost:3000/PackageDetails/${params.id}`),
+                HydrateFallback: Loading,
                 element: <PrivateProvider>
                     <PackageDetails />
                 </PrivateProvider>
@@ -58,6 +62,7 @@ export const router = createBrowserRouter([
             {
                 path: "/updateMyPosted/:id",
                 loader: ({ params }) => fetch(`http://localhost:3000/updateMyPosted/${params.id}`),
+                HydrateFallback: Loading,
 
                 element: <PrivateProvider>
                     <UpdateMyPosted />
