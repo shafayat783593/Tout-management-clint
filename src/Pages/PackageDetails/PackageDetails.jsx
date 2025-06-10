@@ -8,7 +8,7 @@ import { useLoaderData } from "react-router";
 import axios from "axios";
 
 function PackageDetails() {
-    const { id } = useParams();
+    // const { id } = useParams();
     const { user } = UseAuth();
     // const [tour, setTour] = useState(null);
     const [showModal, setShowModal] = useState(false);
@@ -16,6 +16,7 @@ function PackageDetails() {
     console.log(showModal)
     const tour = useLoaderData()
     const handleBooking = async () => {
+      
         const booking = {
             tourId: tour._id,
             tourName: tour.tourName,

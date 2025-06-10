@@ -9,6 +9,7 @@ import AddPackage from "../Pages/AddPackage/AddPackage";
 import AllPackages from "../Pages/AllPackages/AllPackages";
 import PackageDetails from "../Pages/PackageDetails/PackageDetails";
 import ManageMyPackages from "../Pages/ManageMyPackage/ManageMyPackages";
+import UpdateMyPosted from "../Pages/UpdateMyPosted/UpdateMyPosted";
 
 
 
@@ -22,38 +23,48 @@ export const router = createBrowserRouter([
                 path: "/",
                 Component: Home
 
-            },{
-                path:"all-packages",
+            }, {
+                path: "all-packages",
                 loader: () => fetch("http://localhost:3000/appTourPackages"),
-                Component:AllPackages
+                Component: AllPackages
 
 
 
 
-            } ,{
-                path:"PackageDetails/:id",
+            }, {
+                path: "PackageDetails/:id",
                 loader: ({ params }) => fetch(`http://localhost:3000/PackageDetails/${params.id}`),
-                element:<PrivateProvider>
-                    <PackageDetails/>
+                element: <PrivateProvider>
+                    <PackageDetails />
                 </PrivateProvider>
 
             },
-             {
+            {
                 path: "/add-pakage",
                 element: <PrivateProvider>
                     <AddPackage />
                 </PrivateProvider>
                 // Component:AddPackage
 
-            },{
-                 path:"/manageMyPackages/:email",
-                 loader: ({ params }) => fetch(`http://localhost:3000/manageMyPackages/${params.id}`),
-                 element:<PrivateProvider>
-                     <ManageMyPackages/>
+            }, {
+                path: "manageMyPackages",
+
+                element: <PrivateProvider>
+                    <ManageMyPackages />
 
 
-                 </PrivateProvider>
-                                },
+                </PrivateProvider>
+            },
+            {
+                path: "/updateMyPosted/:id",
+                loader: ({ params }) => fetch(`http://localhost:3000/updateMyPosted/${params.id}`),
+
+                element: <PrivateProvider>
+                    <UpdateMyPosted />
+
+
+                </PrivateProvider>
+            },
         ]
     },
     {
