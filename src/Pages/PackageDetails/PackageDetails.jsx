@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import UseAuth from "../../Hooks/UseAuth";
@@ -6,6 +6,8 @@ import { format } from "date-fns";
 import Swal from "sweetalert2";
 import { useLoaderData } from "react-router";
 import axios from "axios";
+import { FaMapMarkerAlt, FaCalendarAlt, FaClock, FaMoneyBillWave, FaFlagCheckered, FaReceipt } from 'react-icons/fa';
+import Loading from "../../components/Loading/Loading";
 
 function PackageDetails() {
     // const { id } = useParams();
@@ -15,6 +17,7 @@ function PackageDetails() {
     const [specialNote, setSpecialNote] = useState("");
     console.log(showModal)
     const tour = useLoaderData()
+    const navigate = useNavigate()
     const handleBooking = async () => {
       
         const booking = {
@@ -25,9 +28,13 @@ function PackageDetails() {
             guidemail: tour?.email,
             buyerName: user.displayName,
             buyerEmail: user.email,
-            bookingDate: new Date().toISOString(),
+            contactNo: tour?.contactNo,
+            departureLocation: tour?.departureLocation,
+            destination: tour?.destination,
+            bookingDate: tour?.date,
             specialNote,
             status: "pending",
+
         };
 
 
@@ -39,6 +46,7 @@ function PackageDetails() {
                 Swal.fire("Success", "Booking submitted!", "success");
                 setShowModal(false);
             }
+            navigate("/myBooking")
 
         })
             .catch(function (error) {
@@ -49,7 +57,7 @@ function PackageDetails() {
 
 
 
-    // if (!tour) return <p className="text-center mt-20">Loading...</p>;
+    if (!tour) return <Loading/>
 
     return (
         <div className="max-w-5xl mx-auto p-4 py-10">
@@ -72,21 +80,33 @@ function PackageDetails() {
                 </div>
             </div>
 
-            <p className="mb-2">📍 Departure: {tour.departureLocation}</p>
-            <p className="mb-2">📅 Date: {tour.date}</p>
-            <p className="mb-2">🕒 Duration: {tour.duration}</p>
-            <p className="mb-2">💰 Price: ${tour.price}</p>
-            <p className="mb-2">🏁 Destination: {tour.destination || "N/A"}</p>
-            <p className="mb-6">🧾 Bookings: {tour.bookingCount || 0}</p>
-
+            <p className="mb-2 flex items-center gap-2">
+                <FaMapMarkerAlt className="text-blue-600" /> Departure: {tour.departureLocation}
+            </p>
+            <p className="mb-2 flex items-center gap-2">
+                <FaCalendarAlt className="text-blue-600" /> Date: {tour.date}
+            </p>
+            <p className="mb-2 flex items-center gap-2">
+                <FaClock className="text-blue-600" /> Duration: {tour.duration}
+            </p>
+            <p className="mb-2 flex items-center gap-2">
+                <FaMoneyBillWave className="text-blue-600" /> Price: ${tour.price}
+            </p>
+            <p className="mb-2 flex items-center gap-2">
+                <FaFlagCheckered className="text-blue-600" /> Destination: {tour.destination || "N/A"}
+            </p>
+            <p className="mb-6 flex items-center gap-2">
+                <FaReceipt className="text-blue-600" /> Bookings: {tour.bookingCount || 0}
+            </p>
             <p className="mb-6 text-gray-700">{tour.packageDetails}</p>
 
 
 
 
 
+
             <button
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg cursor-pointer"
                 onClick={() => setShowModal(true)}
             >
                 Book Now
@@ -121,7 +141,7 @@ function PackageDetails() {
                             </button>
                             <button
                                 onClick={handleBooking}
-                                className="px-4 py-2 rounded bg-blue-600 text-white"
+                                className="px-4 py-2 rounded bg-blue-600 text-white cursor-pointer"
                             >
                                 Book Now
                             </button>

@@ -7,13 +7,16 @@ import Swal from 'sweetalert2';
 import UseAuth from '../../Hooks/UseAuth';
 import { MdAddPhotoAlternate, MdEmail } from 'react-icons/md';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const TourForm = () => {
+
     const formRef = useRef(null);
     const [departureDate, setDepartureDate] = useState(new Date());
     const [imagePreview, setImagePreview] = useState(null);
     const [submitting, setSubmitting] = useState(false);
     const { user } = UseAuth()
+    const navigate = useNavigate()
     console.log(user.email)
 
     //   const handleImageChange = (e) => {
@@ -67,6 +70,7 @@ const TourForm = () => {
             });
 
         }, 1500);
+        navigate("/all-packages")
     };
 
     const containerVariants = {

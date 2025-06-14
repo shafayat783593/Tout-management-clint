@@ -25,6 +25,7 @@ function ManageMyPackages() {
                 setloading(false);
             });
     }, [user?.email]);
+    console.log(Tasks)
 
 
 
@@ -69,7 +70,7 @@ function ManageMyPackages() {
 
     return (
         <div className="p-6 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4 text-center">My Added Packages</h2>
+            <h2 className="text-2xl font-bold mb-4 text-center">Manage my Packages</h2>
 
             {Tasks.length === 0 ? (
                 <p className="text-center text-gray-500">You haven’t added any packages yet.</p>

@@ -11,6 +11,8 @@ import PackageDetails from "../Pages/PackageDetails/PackageDetails";
 import ManageMyPackages from "../Pages/ManageMyPackage/ManageMyPackages";
 import UpdateMyPosted from "../Pages/UpdateMyPosted/UpdateMyPosted";
 import Loading from "../components/Loading/Loading";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import MyBooking from "../Pages/MyBooking/MyBooking";
 
 
 
@@ -25,8 +27,8 @@ export const router = createBrowserRouter([
                 loader: () => fetch("http://localhost:3000/appTourPackages"),
                 HydrateFallback: Loading,
                 Component: Home,
-              
-               
+
+
 
             }, {
                 path: "all-packages",
@@ -55,8 +57,6 @@ export const router = createBrowserRouter([
 
                 element: <PrivateProvider>
                     <ManageMyPackages />
-
-
                 </PrivateProvider>
             },
             {
@@ -66,10 +66,15 @@ export const router = createBrowserRouter([
 
                 element: <PrivateProvider>
                     <UpdateMyPosted />
-
-
                 </PrivateProvider>
             },
+            {
+                path: "/myBooking",
+                element: <PrivateProvider>
+                    <MyBooking />
+                </PrivateProvider>
+
+            }
         ]
     },
     {
@@ -85,5 +90,8 @@ export const router = createBrowserRouter([
                 Component: Register
             }
         ])
-    },
+    }, {
+        path: "/*",
+        Component: ErrorPage
+    }
 ]);

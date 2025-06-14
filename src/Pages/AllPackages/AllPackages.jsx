@@ -35,9 +35,10 @@ function AllPackages() {
 
     if (loading) {
         return (
-           <Loading/>
-          
-        )}
+            <Loading />
+
+        )
+    }
 
     return (
         <div className="px-4 py-12 max-w-7xl mx-auto">

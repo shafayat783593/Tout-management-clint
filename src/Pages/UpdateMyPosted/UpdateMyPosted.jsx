@@ -12,14 +12,16 @@ import Swal from 'sweetalert2';
 function UpdateMyPosted() {
 
     const { contactNo, tourName, price, photo, packageDetails, guidname, guidPhoto
-        , guidEmail, duration, destination, departureLocation } = useLoaderData()
+        , guidEmail, duration, destination, departureLocation ,_id} = useLoaderData()
 
         const { user } = UseAuth()
+    console.log(contactNo, tourName, price, photo, packageDetails, guidname, guidPhoto
+        , guidEmail, duration, destination, departureLocation,_id)
 
 
     const [submitting, setSubmitting] = useState(false);
     const [departureDate, setDepartureDate] = useState(new Date());
-
+const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,8 +30,8 @@ function UpdateMyPosted() {
         const formData = new FormData(form)
         const updateMyPosted = Object.fromEntries(formData.entries())
       
-            axios.post("http://localhost:3000/addTourPackages", updateMyPosted).then(res=>{
-                console.log(res)
+        axios.put(`http://localhost:3000/updateTourPackages/${_id}`, updateMyPosted).then(res=>{
+                
                 
            setTimeout(() => {
             setSubmitting(false)
@@ -42,6 +44,7 @@ function UpdateMyPosted() {
                });
 
            }, 1000);
+            navigate("/manageMyPackages")
 
 
             }).catch(error=>{
@@ -80,7 +83,7 @@ function UpdateMyPosted() {
             animate="visible"
             variants={containerVariants}
         >
-            <h2 className="text-3xl font-bold text-center mb-8 text-indigo-700">Create New Tour Package</h2>
+            <h2 className="text-3xl font-bold text-center mb-8 text-indigo-700">Update Tour Package</h2>
 
             <form onSubmit={handleSubmit}>
                 <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6" variants={containerVariants}>
