@@ -97,7 +97,7 @@ const TourForm = () => {
 
     return (
         <motion.div
-            className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-lg"
+            className="max-w-3xl mx-auto p-6 bg-neutral-content rounded-xl shadow-lg"
             initial="hidden"
             animate="visible"
             variants={containerVariants}
@@ -243,7 +243,7 @@ const TourForm = () => {
                             type="text"
                             // name="guidName"
 
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
                         />
                     </motion.div>
                     <motion.div variants={itemVariants}>
@@ -256,7 +256,7 @@ const TourForm = () => {
                             type="url"
                             // name="guidePhoto"
 
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg text-neutral focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                         />
                     </motion.div>
 
@@ -270,7 +270,7 @@ const TourForm = () => {
                             readOnly
                             type="email"
                             // name="guideEmail"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg  text-neutral focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>

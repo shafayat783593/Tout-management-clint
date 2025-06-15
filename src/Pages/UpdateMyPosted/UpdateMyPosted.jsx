@@ -78,7 +78,7 @@ const navigate = useNavigate()
 
     return (
         <motion.div
-            className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-lg"
+            className="max-w-3xl mx-auto p-6 bg-neutral-content rounded-xl shadow-lg"
             initial="hidden"
             animate="visible"
             variants={containerVariants}
@@ -96,7 +96,7 @@ const navigate = useNavigate()
                             defaultValue={tourName}
                             type="text"
                             name="tourName"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border text-neutral border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
@@ -113,7 +113,7 @@ const navigate = useNavigate()
                             type="url"
                             name="photo"
 
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 text-neutral border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                         />
                     </motion.div>
 
@@ -127,7 +127,7 @@ const navigate = useNavigate()
                             type="text"
                             name="duration"
                             placeholder="e.g., 3 Days 2 Nights"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 text-neutral border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
@@ -141,7 +141,7 @@ const navigate = useNavigate()
                             defaultValue={departureLocation}
                             type="text"
                             name="departureLocation"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 text-neutral border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
@@ -155,7 +155,7 @@ const navigate = useNavigate()
                             defaultValue={destination}
                             type="text"
                             name="destination"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 text-neutral border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
@@ -169,7 +169,7 @@ const navigate = useNavigate()
                             defaultValue={price}
                             type="number"
                             name="price"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 text-neutral border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
@@ -185,7 +185,7 @@ const navigate = useNavigate()
                             onChange={(date) => setDepartureDate(date)}
                             minDate={new Date()}
                             name='date'
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 text-neutral border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
@@ -202,7 +202,7 @@ const navigate = useNavigate()
                             defaultValue={guidname}
                             name="packageDetails"
                             rows={4}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 text-neutral border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
@@ -216,7 +216,7 @@ const navigate = useNavigate()
                             defaultValue={contactNo}
                             type="tel"
                             name="contactNo"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border text-neutral border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
@@ -233,7 +233,7 @@ const navigate = useNavigate()
                             type="text"
                             // name="guidName"
 
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border text-neutral border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                         />
                     </motion.div>
                     <motion.div variants={itemVariants}>
@@ -246,7 +246,7 @@ const navigate = useNavigate()
                             type="url"
                             // name="guidePhoto"
 
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border text-neutral border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                         />
                     </motion.div>
 
@@ -260,7 +260,7 @@ const navigate = useNavigate()
                             readOnly
                             type="email"
                             // name="guideEmail"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border text-neutral border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>

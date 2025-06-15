@@ -57,7 +57,7 @@ const MyBooking = () => {
 
 
                     <div className="overflow-x-auto">
-                        <table className="min-w-full bg-white border border-gray-200 shadow-lg rounded-xl overflow-hidden">
+                        <table className="min-w-full bg-neutral-content border border-gray-200 shadow-lg rounded-xl overflow-hidden">
                             <thead className="bg-blue-600 text-white text-left">
                                 <tr>
                                     <th className="py-3 px-4">Tour Name</th>
@@ -78,7 +78,7 @@ const MyBooking = () => {
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.3, delay: index * 0.1 }}
                                     >
-                                        <td className="py-3 px-4 font-medium">{booking.tourName}</td>
+                                        <td className="py-3 px-4 font-medium text-neutral">{booking.tourName}</td>
 
                                         <td className="py-3 px-4">
                                             <div className="flex flex-col gap-1">
@@ -93,9 +93,9 @@ const MyBooking = () => {
                                             <FaCalendarAlt className="text-blue-500" /> {booking.bookingDate}
                                         </td>
 
-                                        <td className="py-3 px-4">
+                                        <td className="py-3 px-4 text-neutral">
                                             <span className="flex items-center gap-2">
-                                                <FaMapMarkerAlt className="text-red-500" />
+                                                <FaMapMarkerAlt className="text-red-500 " />
                                                 {booking.departureLocation} →
                                                 <FaMapMarkerAlt className="text-green-600" />
                                                 {booking.destination}

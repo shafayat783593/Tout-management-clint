@@ -13,6 +13,7 @@ import UpdateMyPosted from "../Pages/UpdateMyPosted/UpdateMyPosted";
 import Loading from "../components/Loading/Loading";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import MyBooking from "../Pages/MyBooking/MyBooking";
+import AboutUs from "../Pages/About Us/AboutUs";
 
 
 
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
                 element: <PrivateProvider>
                     <PackageDetails />
                 </PrivateProvider>
+
+            },{
+                path:"aboutUs",
+                Component:AboutUs
 
             },
             {

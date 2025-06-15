@@ -72,7 +72,7 @@ function AllPackages() {
                             className="w-full h-48 object-cover"
                         />
                         <div className="p-4">
-                            <h3 className="text-xl font-semibold mb-2">{tour?.tourName}</h3>
+                            <h3 className="text-xl text-info font-semibold mb-2">{tour?.tourName}</h3>
 
                             <div className="flex items-center gap-2 mb-3">
                                 <img
@@ -80,11 +80,11 @@ function AllPackages() {
                                     alt={tour?.guidname}
                                     className="w-8 h-8 rounded-full"
                                 />
-                                <span className="text-sm text-gray-700">{tour?.guidname}</span>
+                                <span className="text-sm text-neutral">{tour?.guidname}</span>
                             </div>
 
-                            <p className="text-sm mb-1">🕒 {tour?.duration}</p>
-                            <p className="text-sm mb-1">📅 {tour?.date}</p>
+                            <p className="text-sm text-neutral mb-1">🕒 {tour?.duration}</p>
+                            <p className="text-sm mb-1 text-neutral ">📅 {tour?.date}</p>
                             <p className="text-lg font-bold text-blue-700 mb-4">${tour?.price}</p>
 
                             <button

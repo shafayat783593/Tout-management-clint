@@ -119,15 +119,15 @@ function PackageDetails() {
                         animate={{ scale: 1, opacity: 1 }}
 
                         className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-                        <h2 className="text-xl font-semibold mb-4">Book This Tour</h2>
-                        <p><strong>Package:</strong> {tour.tourName}</p>
-                        <p><strong>Price:</strong> ${tour.price}</p>
-                        <p><strong>Name:</strong> {user.displayName}</p>
-                        <p><strong>Email:</strong> {user.email}</p>
-                        <p><strong>Date:</strong> {format(new Date(), 'yyyy-MM-dd')}</p>
+                        <h2 className="text-xl text-info font-semibold mb-4">Book This Tour</h2>
+                        <p className="text-neutral"><strong>Package:</strong> {tour.tourName}</p>
+                        <p className="text-neutral"><strong>Price:</strong> ${tour.price}</p>
+                        <p className="text-neutral"><strong>Name:</strong> {user.displayName}</p>
+                        <p className="text-neutral"><strong>Email:</strong> {user.email}</p>
+                        <p className="text-neutral"><strong>Date:</strong> {format(new Date(), 'yyyy-MM-dd')}</p>
                         <textarea
                             placeholder="Special Note (optional)"
-                            className="w-full border mt-4 p-2 rounded-md"
+                            className="w-full border mt-4 p-2 rounded-md  text-neutral"
                             value={specialNote}
                             onChange={(e) => setSpecialNote(e.target.value)}
                         ></textarea>
@@ -185,11 +185,11 @@ export default PackageDetails
 // className = "bg-white p-6 rounded-lg shadow-lg w-full max-w-md"
 //     >
 // <h2 className="text-xl font-semibold mb-4">Book This Tour</h2>
-// <p><strong>Package:</strong> {tour.tourName}</p>
-// <p><strong>Price:</strong> ${tour.price}</p>
-// <p><strong>Name:</strong> {user.displayName}</p>
-// <p><strong>Email:</strong> {user.email}</p>
-// <p><strong>Date:</strong> {format(new Date(), 'yyyy-MM-dd')}</p>
+// <p className="text-neutral"><strong>Package:</strong> {tour.tourName}</p>
+// <p className="text-neutral"><strong>Price:</strong> ${tour.price}</p>
+// <p className="text-neutral"><strong>Name:</strong> {user.displayName}</p>
+// <p className="text-neutral"><strong>Email:</strong> {user.email}</p>
+// <p className="text-neutral"><strong>Date:</strong> {format(new Date(), 'yyyy-MM-dd')}</p>
 
 
 
