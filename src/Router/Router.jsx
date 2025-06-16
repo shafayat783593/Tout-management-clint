@@ -14,6 +14,7 @@ import Loading from "../components/Loading/Loading";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import MyBooking from "../Pages/MyBooking/MyBooking";
 import AboutUs from "../Pages/About Us/AboutUs";
+import ForgetPassword from "../components/Forget-password/FOrgetPassword";
 
 
 
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
                 </PrivateProvider>
                 // Component:AddPackage
 
+            },
+            {
+                path: "forgetpasswore",
+                Component: ForgetPassword
             }, {
                 path: "manageMyPackages",
 

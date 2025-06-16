@@ -2,16 +2,17 @@ import React, { use } from 'react'
 import { CiMenuBurger } from "react-icons/ci";
 import { Link, NavLink } from 'react-router';
 // import { CiMenuBurger } from "react-icons/ci";
-// import logo from "../.././assets/logo.png"
+import logo from "../.././assets/sitelogo.png"
 import { AuthContext } from '../../Context/AuthContext';
 import UseAuth from '../../Hooks/UseAuth';
+
 // import { FaMoon } from "react-icons/fa6";
 // import { GoSun } from "react-icons/go";
 function Navbar() {
     // const { darkMode, setdarkMode } = use(ThemContext)
 
     const { user, logOut } = UseAuth()
-    console.log(user?.photoURL)
+    console.log("user Profile", user?.photoURL)
 
 
 
@@ -27,7 +28,7 @@ function Navbar() {
 
     const navigation = (
         <>
-            <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : ""}  m-2 font-medium text-xl hover:text-[#378acf]`} to="/">Home</NavLink>
+            <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : ""}  m-2 font-medium text-xl hover:text-[#378acf]`} to="/" >Home</NavLink>
             <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : ""}  m-2 font-medium text-xl hover:text-[#378acf]`} to="/all-packages">All Packages</NavLink>
             <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : ""}  m-2 font-medium text-xl hover:text-[#378acf]`} to="/aboutUs">About Us</NavLink>
             {
@@ -105,13 +106,13 @@ function Navbar() {
                 </div>
 
 
-                <div className='flex justify-around'>
+                <div className='flex justify-around items-center'>
 
 
-                    <div>
-                        <Link className=' flex text-center items-center ' to="/">
-                            <img className='w-[70px]' src="" alt="Logo" />
-                            <h1 className='text-xl hidden md:block'>Freelance Task</h1>
+                    <div className=' '>
+                        <Link className='  text-center items-center justify-center' to="/">
+                            <img className='w-[90px]  ' src={logo} alt="Logo" />
+                            {/* <h1 className='text-xl hidden md:block'>Freelance Task</h1> */}
                         </Link>
                     </div>
 
@@ -125,9 +126,13 @@ function Navbar() {
 
 
                             {user && (
-                                <div className="dropdown dropdown-hover ml-2">
-                                    <img tabIndex={0} className='w-24 rounded-full' src={user?.photoURL || "https://img.icons8.com/?size=96&id=80976&format=png"} alt="" />
-                                    <ul tabIndex={0} className=" space-y-4 dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                                <div className="dropdown dropdown-hover mr-30 lg:ml-0">
+                                    <img
+                                        tabIndex={0}
+                                        className='w-18 lg:w-24 rounded-full'
+                                        src={user?.photoURL || "https://img.icons8.com/?size=96&id=80976&format=png"}
+                                        alt="User Profile"
+                                    />                                    <ul tabIndex={0} className=" space-y-4 dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                                         {
                                             user && profileDropdown
                                         }

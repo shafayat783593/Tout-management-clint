@@ -92,6 +92,8 @@ function Login() {
                             <input required placeholder="" name='password' type="password" className="input" />
                             <span>Password</span>
                         </label>
+                        <Link to="/forgetpasswore"><span className="link link-hover">Forgot password?</span></Link>
+
                         {error && <p className='text-red-500'> {error}</p>}
 
 

@@ -4,28 +4,29 @@ import UseAuth from '../../Hooks/UseAuth'
 import Loading from '../../components/Loading/Loading'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import UseAxiosSecure from '../../Hooks/UseAxiosSecure'
 
 function ManageMyPackages() {
     const [Tasks, setTasks] = useState([])
     const [loading, setloading] = useState(true)
     const { user } = UseAuth()
     const navigate = useNavigate()
-
+    const axiosSecure = UseAxiosSecure()
     useEffect(() => {
 
+        axiosSecure(`http://localhost:3000/manageMyPackages/${user.email}`).then(res => {
 
-        fetch(`http://localhost:3000/manageMyPackages/${user.email}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setTasks(data);
-                setloading(false);
-            })
-            .catch((err) => {
-                console.error(err);
-                setloading(false);
-            });
-    }, [user?.email]);
-    console.log(Tasks)
+            setTasks(res?.data);
+            setloading(false);
+
+        }).catch((err) => {
+            console.error(err);
+            setloading(false);
+        });
+
+
+    }, [user?.email,axiosSecure]);
+  
 
 
 
@@ -39,7 +40,7 @@ function ManageMyPackages() {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:3000/deleteMyPost/${id}` ).then(res=>{
+                axios.delete(`http://localhost:3000/deleteMyPost/${id}`).then(res => {
                     if (res.data.deletedCount > 0) {
                         setTasks((prev) => prev.filter((task) => task._id !== id));
                         Swal.fire("Deleted!", "Task has been deleted.", "success");
@@ -47,13 +48,13 @@ function ManageMyPackages() {
 
 
 
-                }).catch(error=>{
+                }).catch(error => {
                     console.error(error);
 
                     Swal.fire("Error", "Something went wrong.", "error");
                 })
 
-                  
+
             }
         });
 

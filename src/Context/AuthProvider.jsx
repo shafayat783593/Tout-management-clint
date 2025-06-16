@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { AuthContext } from './AuthContext'
-import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import { auth } from '../Firebase/Firebase-init'
+import axios from 'axios'
 
 function AuthProvider({children}) {
 
@@ -41,10 +42,25 @@ function AuthProvider({children}) {
     const github =()=>{
         return signInWithPopup(auth,gitprovider)
     }
+    // forget passwordd................
+    const forgetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email)
+
+
+    }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
+            if(currentUser?.email){
+                axios.post("http://localhost:3000/jwt",{
+                    email:currentUser?.email
+                }).then(res=>{
+
+                })
+            }else{
+                
+            }
             setLoading(false)
         })
         return () => {
@@ -62,7 +78,8 @@ function AuthProvider({children}) {
         setLoading,
         updateUser,
         googleLogin,
-        github
+        github,
+        forgetPassword
     }
 
    return <AuthContext value={authData}>

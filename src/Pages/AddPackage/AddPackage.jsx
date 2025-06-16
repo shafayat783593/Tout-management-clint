@@ -114,7 +114,7 @@ const TourForm = () => {
                         <input
                             type="text"
                             name="tourName"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
@@ -131,7 +131,7 @@ const TourForm = () => {
                             type="url"
                             name="photo"
 
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
                         />
                     </motion.div>
 
@@ -144,7 +144,7 @@ const TourForm = () => {
                             type="text"
                             name="duration"
                             placeholder="e.g., 3 Days 2 Nights"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
@@ -170,7 +170,7 @@ const TourForm = () => {
                         <input
                             type="text"
                             name="destination"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
@@ -183,7 +183,7 @@ const TourForm = () => {
                         <input
                             type="number"
                             name="price"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
@@ -198,7 +198,7 @@ const TourForm = () => {
                             onChange={(date) => setDepartureDate(date)}
                             minDate={new Date()}
                             name='date'
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
@@ -214,7 +214,7 @@ const TourForm = () => {
                         <textarea
                             name="packageDetails"
                             rows={4}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
@@ -227,7 +227,7 @@ const TourForm = () => {
                         <input
                             type="tel"
                             name="contactNo"
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg  text-neutral focus:ring-2text-neutral focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </motion.div>
