@@ -30,7 +30,7 @@ const TourForm = () => {
     //       reader.readAsDataURL(file);
     //     }
     //   };
-
+// const [bookingCount, setbookingCount] = useState(0)
     const handleSubmit = (e) => {
         e.preventDefault();
         setSubmitting(true);
@@ -42,6 +42,7 @@ const TourForm = () => {
         newtravels.guidname = user?.displayName
         newtravels.guidEmail = user?.email
         newtravels.guidPhoto = user?.photoURL
+        // newtravels.bookingCounts= bookingCount
 
 
 
