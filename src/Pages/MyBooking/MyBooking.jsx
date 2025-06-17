@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { FaPhone, FaMapMarkerAlt, FaCalendarAlt, FaCheckCircle } from "react-icons/fa";
 import UseAuth from "../../Hooks/UseAuth";
 import Loading from "../../components/Loading/Loading";
+import PageTitle from "../../Hooks/PageTitle";
 
 const MyBooking = () => {
     const [data, setdata] = useState([])
@@ -49,6 +50,9 @@ const MyBooking = () => {
 
 
     return (
+        <>
+            <PageTitle title="My Booking" /> 
+
         <section className="py-16 px-4">
             <h2 className="text-3xl font-bold mb-8 text-center">Booking Requests</h2>
 
@@ -137,6 +141,7 @@ const MyBooking = () => {
                     </div>
             }
         </section>
+        </>
     );
 };
 

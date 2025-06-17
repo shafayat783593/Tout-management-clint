@@ -7,6 +7,7 @@ import './Register.css'
 import { toast, ToastContainer } from 'react-toastify'
 import { Link, useNavigate } from 'react-router'
 import UseAuth from '../../Hooks/UseAuth'
+import PageTitle from '../../Hooks/PageTitle'
 function Register() {
 
 
@@ -93,7 +94,8 @@ function Register() {
     }
     return (
 
-
+<>
+            <PageTitle  title="Register" /> 
 
         <div className='flex justify-center items-center py-5 '>
 
@@ -152,6 +154,8 @@ function Register() {
             <ToastContainer />
 
         </div>
+
+</>
 
 
 

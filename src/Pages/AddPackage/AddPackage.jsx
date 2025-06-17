@@ -8,6 +8,7 @@ import UseAuth from '../../Hooks/UseAuth';
 import { MdAddPhotoAlternate, MdEmail } from 'react-icons/md';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
+import PageTitle from '../../Hooks/PageTitle';
 
 const TourForm = () => {
 
@@ -96,7 +97,12 @@ const TourForm = () => {
     };
 
     return (
+        <>
+            <PageTitle title="AddPackages" /> 
+
         <motion.div
+      
+
             className="max-w-3xl mx-auto p-6 bg-neutral-content rounded-xl shadow-lg"
             initial="hidden"
             animate="visible"
@@ -304,6 +310,7 @@ const TourForm = () => {
                 </motion.div>
             </form>
         </motion.div>
+        </>
     );
 };
 

@@ -1,11 +1,18 @@
 import { motion } from "framer-motion";
 import { FaUsers, FaMapMarkedAlt, FaHandsHelping } from "react-icons/fa";
 import { useNavigate } from "react-router";
+import PageTitle from "../../Hooks/PageTitle";
 
 function AboutUs() {
     const navigate= useNavigate()
     return (
+
+
+     
+
         <div className="max-w-6xl mx-auto px-4 py-16">
+            <PageTitle title="About Us" /> 
+
             <motion.h1
                 initial={{ opacity: 0, y: -40 }}
                 animate={{ opacity: 1, y: 0 }}

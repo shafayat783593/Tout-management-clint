@@ -2,9 +2,12 @@ import React from 'react'
 import { Link } from 'react-router'
 import error from "../../assets/erorrpage.json"
 import Lottie from 'lottie-react'
+import PageTitle from '../../Hooks/PageTitle'
 function ErrorPage() {
     return (
         <div>
+            <PageTitle title="Error" /> 
+
 
             <main>
 

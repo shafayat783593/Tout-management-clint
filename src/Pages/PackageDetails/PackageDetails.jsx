@@ -8,6 +8,7 @@ import { useLoaderData } from "react-router";
 import axios from "axios";
 import { FaMapMarkerAlt, FaCalendarAlt, FaClock, FaMoneyBillWave, FaFlagCheckered, FaReceipt } from 'react-icons/fa';
 import Loading from "../../components/Loading/Loading";
+import PageTitle from "../../Hooks/PageTitle";
 
 function PackageDetails() {
     // const { id } = useParams();
@@ -60,6 +61,10 @@ function PackageDetails() {
     if (!tour) return <Loading/>
 
     return (
+        <>
+            <PageTitle title="Package Details" /> 
+
+        
         <div className="max-w-5xl mx-auto p-4 py-10">
             <img
                 src={tour.photo}
@@ -159,6 +164,7 @@ function PackageDetails() {
 
 
         </div>
+        </>
     );
 }
 

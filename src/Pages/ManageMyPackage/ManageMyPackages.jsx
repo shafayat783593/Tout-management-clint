@@ -5,6 +5,7 @@ import Loading from '../../components/Loading/Loading'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import UseAxiosSecure from '../../Hooks/UseAxiosSecure'
+import PageTitle from '../../Hooks/PageTitle'
 
 function ManageMyPackages() {
     const [Tasks, setTasks] = useState([])
@@ -70,6 +71,10 @@ function ManageMyPackages() {
 
 
     return (
+        <>
+            <PageTitle title="ManageMy Packages" /> 
+
+        
         <div className="p-6 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-4 text-center">Manage my Packages</h2>
 
@@ -125,6 +130,7 @@ function ManageMyPackages() {
                 </div>
             )}
         </div>
+        </>
 
     )
 

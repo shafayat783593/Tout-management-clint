@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import logo from "../.././assets/sitelogo.png"
+import { Link } from "react-router";
 const Footer = () => {
     const fadeIn = {
         hidden: { opacity: 0, y: 20 },
@@ -36,27 +37,29 @@ const Footer = () => {
                     <motion.div variants={fadeIn}>
                         <h3 className="text-xl font-bold mb-4">Quick Links</h3>
                         <ul className="space-y-2">
-                            <li><a href="#" className="hover:text-cyan-400">Home</a></li>
-                            <li><a href="#" className="hover:text-cyan-400">Tour Packages</a></li>
-                            <li><a href="#" className="hover:text-cyan-400">My Bookings</a></li>
-                            <li><a href="#" className="hover:text-cyan-400">Contact Us</a></li>
+                            <li><Link to="/" className="hover:text-cyan-400">Home</Link></li>
+                            <li><Link to="/all-packages" className="hover:text-cyan-400">Tour Packages</Link></li>
+                            <li><Link to="/myBooking" className="hover:text-cyan-400">My Bookings</Link></li>
+                            <li><Link to="/aboutUs" className="hover:text-cyan-400">Contact Us</Link></li>
                         </ul>
                     </motion.div>
 
                     {/* Column 3: Contact */}
                     <motion.div variants={fadeIn}>
                         <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-                        <p>Email: support@unicq.com</p>
-                        <p>Phone: +880 1234 567890</p>
+                        <p>Email: sshapa17@gmail.com</p>
+                        <p>Phone: +880 1610665069</p>
                         <p>Address: 123 Travel Street, Dhaka, Bangladesh</p>
                     </motion.div>
 
                     {/* Column 4: Logo */}
                     <motion.div variants={fadeIn} className="flex flex-col items-center">
                         <div className="text-3xl font-bold mb-2">
-                           <img className="w-[90px]" src={logo} alt="" />
+                           <img className="w-[110px]" src={logo} alt="" />
+                           {/* <h1>Booking</h1> */}
+
                         </div>
-                        <p className="text-sm text-gray-400">© 2023 UniCQ. All rights reserved.</p>
+                        <p className="text-sm text-gray-400">© 2025 pacakage management. All rights reserved.</p>
                     </motion.div>
                 </div>
 

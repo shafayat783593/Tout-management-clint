@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router'
 import './Login.css'
 import { motion } from "framer-motion"
 import { ToastContainer } from 'react-toastify'
+import PageTitle from '../../Hooks/PageTitle'
 
 
 function Login() {
@@ -62,6 +63,8 @@ function Login() {
     }
     return (
         <div>
+            <PageTitle title="Login" /> 
+
 
 
             <div className='flex justify-center items-center py-5 '>

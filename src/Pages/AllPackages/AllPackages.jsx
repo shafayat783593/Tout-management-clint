@@ -4,6 +4,7 @@ import { Link, useLoaderData, useNavigate } from "react-router";
 import UseAuth from "../../Hooks/UseAuth";
 import axios from "axios";
 import Loading from "../../components/Loading/Loading";
+import PageTitle from "../../Hooks/PageTitle";
 
 function AllPackages() {
     const [searchTerm, setSearchTerm] = useState("");
@@ -41,6 +42,10 @@ function AllPackages() {
     }
 
     return (
+        <>
+            <PageTitle title="AllPackages" /> 
+
+        
         <div className="px-4 py-12 max-w-7xl mx-auto">
             <h2 className="text-3xl font-bold mb-6 text-center">All Tour Packages</h2>
 
@@ -107,6 +112,7 @@ function AllPackages() {
                 </p>
             )}
         </div>
+        </>
     );
 }
 

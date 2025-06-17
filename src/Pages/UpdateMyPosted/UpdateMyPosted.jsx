@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker';
 import UseAuth from '../../Hooks/UseAuth';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import PageTitle from '../../Hooks/PageTitle';
 
 
 function UpdateMyPosted() {
@@ -77,6 +78,10 @@ const navigate = useNavigate()
     };
 
     return (
+
+        <>
+            <PageTitle title="Update Mypackage" /> 
+
         <motion.div
             className="max-w-3xl mx-auto p-6 bg-neutral-content rounded-xl shadow-lg"
             initial="hidden"
@@ -294,6 +299,7 @@ const navigate = useNavigate()
                 </motion.div>
             </form>
         </motion.div>
+        </>
     )
 }
 
