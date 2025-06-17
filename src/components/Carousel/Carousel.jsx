@@ -9,10 +9,10 @@ export default function AutoCarousel() {
     const [current, setCurrent] = useState(0);
     const [data, setData] = useState([]);
     const navigate = useNavigate()
-    const {user} = UseAuth()
+    const { user } = UseAuth()
 
     useEffect(() => {
-        axios("http://localhost:3000/appTourPackages")
+        axios("https://tour-management-server-ashen.vercel.app/appTourPackages")
             .then((res) => {
                 setData(res.data);
             })
@@ -44,13 +44,13 @@ export default function AutoCarousel() {
                 </div>
 
                 <div className="relative h-[450px] w-full overflow-hidden rounded-xl"
-                   
-                 
-                        onClick={() => {
-                            console.log("Image clicked");
-                            user ? navigate(`/PackageDetails/${data[current]._id}`) : navigate("/login");
-                        }}
-               >
+
+
+                    onClick={() => {
+                        console.log("Image clicked");
+                        user ? navigate(`/PackageDetails/${data[current]._id}`) : navigate("/login");
+                    }}
+                >
                     <motion.div
                         key={data[current]._id}
                         initial={{ opacity: 0, x: 100 }}
@@ -71,7 +71,7 @@ export default function AutoCarousel() {
                         </div>
                     </motion.div>
 
-                
+
                 </div>
                 {/* Navigation Buttons */}
                 {/* <div className="absolute inset-0 flex items-center justify-between px-5 z-10">

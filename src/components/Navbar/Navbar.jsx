@@ -2,8 +2,7 @@ import React, { use } from 'react'
 import { CiMenuBurger } from "react-icons/ci";
 import { Link, NavLink } from 'react-router';
 // import { CiMenuBurger } from "react-icons/ci";
-import logo from "../.././assets/sitelogo.png"
-import { AuthContext } from '../../Context/AuthContext';
+import logo from "../.././assets/logo.png"
 import UseAuth from '../../Hooks/UseAuth';
 
 // import { FaMoon } from "react-icons/fa6";
@@ -110,9 +109,9 @@ function Navbar() {
 
 
                     <div className=' '>
-                        <Link className='  text-center items-center justify-center' to="/">
-                            <img className='w-[90px]  ' src={logo} alt="Logo" />
-                            {/* <h1 className='text-xl hidden md:block'>Freelance Task</h1> */}
+                        <Link className='flex  text-center items-center justify-center' to="/">
+                            <img className='w-[60px]  ' src={logo} alt="Logo" />
+                            <h1 className='text-xl hidden md:block'>Booking Management </h1>
                         </Link>
                     </div>
 

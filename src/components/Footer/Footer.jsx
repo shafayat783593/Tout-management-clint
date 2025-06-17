@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import logo from "../.././assets/sitelogo.png"
-import { Link } from "react-router";
+import logo from "../.././assets/logo.png";
+import { Link } from "react-router"; // Fixed import
+
 const Footer = () => {
     const fadeIn = {
         hidden: { opacity: 0, y: 20 },
@@ -21,21 +22,36 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                     {/* Column 1: About */}
                     <motion.div variants={fadeIn}>
-                        <h3 className="text-xl font-bold mb-4">About UniCQ</h3>
+                        <h3 className="text-xl font-bold mb-4">About Booking</h3>
                         <p className="mb-4">
                             Your one-stop solution for seamless tour package bookings and travel experiences.
                         </p>
                         <div className="flex space-x-4">
-                            <FaFacebook className="text-2xl hover:text-blue-500 cursor-pointer" />
+                            <Link to="https://www.facebook.com/rana.rahim.5473">
+                            <FaFacebook  className="text-2xl hover:text-blue-500 cursor-pointer" />
+                            </Link>
+                            <Link to="https://www.youtube.com/@shapashapa1676">
+
                             <FaTwitter className="text-2xl hover:text-sky-400 cursor-pointer" />
+                            </Link>
+
+                            <Link to="https://www.instagram.com/safayet302/?fbclid=IwY2xjawK-cwtleHRuA2FlbQIxMABicmlkETF3cEdWQlE4bHRqM0t6cW5EAR6e9lBuK_2mzzj9JgMfMHTRUgwTM0vTqmHZxWQwuc4TZR7lvFwuZ7klL2FUdg_aem_XsZvkmZQxAmuthyb-NMeQw#">
+
+                            
                             <FaInstagram className="text-2xl hover:text-pink-500 cursor-pointer" />
+                            </Link>
+
+                            <Link to="https://twitter-cl.vercel.app/login"> 
+                            
+                            
                             <FaLinkedin className="text-2xl hover:text-blue-700 cursor-pointer" />
+                            </Link>
                         </div>
                     </motion.div>
 
                     {/* Column 2: Quick Links */}
                     <motion.div variants={fadeIn}>
-                        <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+                        <h3 className="text-xl font-bold mb-4">Booking Links</h3>
                         <ul className="space-y-2">
                             <li><Link to="/" className="hover:text-cyan-400">Home</Link></li>
                             <li><Link to="/all-packages" className="hover:text-cyan-400">Tour Packages</Link></li>
@@ -55,47 +71,37 @@ const Footer = () => {
                     {/* Column 4: Logo */}
                     <motion.div variants={fadeIn} className="flex flex-col items-center">
                         <div className="text-3xl font-bold mb-2">
-                           <img className="w-[110px]" src={logo} alt="" />
-                           {/* <h1>Booking</h1> */}
-
+                      <div className=' '>
+                                             <Link className='flex text-center items-center justify-center' to="/">
+                                                 <img className='w-[60px]  ' src={logo} alt="Logo" />
+                                                 <h1 className='text-xl hidden md:block'>Booking Management </h1>
+                                             </Link>
+                                         </div>
                         </div>
-                        <p className="text-sm text-gray-400">© 2025 pacakage management. All rights reserved.</p>
+                        <p className="text-sm text-gray-400">© 2025 package management. All rights reserved.</p>
                     </motion.div>
                 </div>
 
-                {/* Payment Methods Section */}
                 <motion.div
                     variants={fadeIn}
                     className="border-t border-gray-700 pt-6"
                 >
                     <h3 className="text-lg font-bold mb-4 text-center">Payment Methods</h3>
                     <div className="flex flex-wrap justify-center gap-4">
-                        {/* Payment Logos (Replace with actual images) */}
+
                         <img
-                            src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.logo.wine%2Flogo%2FBKash&psig=AOvVaw0sodxedwSNTaIHXSjj262M&ust=1750169499700000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMjJ4suP9o0DFQAAAAAdAAAAABAE"
-                            alt="Bkash"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
+                            alt="Visa"
                             className="h-12 object-contain"
                         />
+
+                        {/* Mastercard */}
                         <img
-                            src="https://play-lh.googleusercontent.com/EQC9NtbtRvsNcU1r_5Dr8pWm3hPfN3OjGjzkOqzCEPDJvqBGKyfU9-a2ajNtcrIg1rs=w480-h960-rw"
-                            alt="Nagad"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png"
+                            alt="Mastercard"
                             className="h-12 object-contain"
                         />
-                        <img
-                            src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ARocket_mobile_banking_logo.svg&psig=AOvVaw29W-v3YbuNNLwQrkFBdcbN&ust=1750169521646000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOj4ktaP9o0DFQAAAAAdAAAAABAa"
-                            alt="Rocket"
-                            className="h-12 object-contain"
-                        />
-                        <img
-                            src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fseeklogo.com%2Fvector-logo%2F288455%2Fislami-bank-bangladesh-ltd&psig=AOvVaw2y_p8U2GSqROnFwt9XgLkO&ust=1750169582177000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjmn_OP9o0DFQAAAAAdAAAAABAE"
-                            alt="IBBL"
-                            className="h-12 object-contain"
-                        />
-                        <img
-                            src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ADutch-bangla-bank-ltd.svg&psig=AOvVaw0Oy0SNVtaaQh5xRqgZ0Qds&ust=1750169622624000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNC1mIaQ9o0DFQAAAAAdAAAAABAE"
-                            alt="DBBL"
-                            className="h-12 object-contain"
-                        />
+
                     </div>
                 </motion.div>
             </div>

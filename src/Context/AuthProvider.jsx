@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider,
 import { auth } from '../Firebase/Firebase-init'
 import axios from 'axios'
 
-function AuthProvider({children}) {
+function AuthProvider({ children }) {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -27,20 +27,20 @@ function AuthProvider({children}) {
     }
 
     const provider = new GoogleAuthProvider()
-  
+
 
 
     const googleLogin = () => {
         return signInWithPopup(auth, provider); // both arguments are required
-      };
+    };
     const logOut = () => {
         return signOut(auth)
     }
 
     // github login...........
     const gitprovider = new GithubAuthProvider()
-    const github =()=>{
-        return signInWithPopup(auth,gitprovider)
+    const github = () => {
+        return signInWithPopup(auth, gitprovider)
     }
     // forget passwordd................
     const forgetPassword = (email) => {
@@ -52,15 +52,15 @@ function AuthProvider({children}) {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
-            if(currentUser?.email){
-                axios.post("http://localhost:3000/jwt",{
-                    email:currentUser?.email
-                }).then(res=>{
+            if (currentUser?.email) {
+                axios.post("https://tour-management-server-ashen.vercel.app/jwt", {
+                    email: currentUser?.email
+                }).then(res => {
 
                 })
-            }else{
-                
-                
+            } else {
+
+
             }
             setLoading(false)
         })
@@ -83,7 +83,7 @@ function AuthProvider({children}) {
         forgetPassword
     }
 
-   return <AuthContext value={authData}>
+    return <AuthContext value={authData}>
         {children}</AuthContext>
 }
 

@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 path: "/",
-                loader: () => fetch("http://localhost:3000/appTourPackages"),
+                loader: () => fetch("https://tour-management-server-ashen.vercel.app/appTourPackages"),
                 HydrateFallback: Loading,
                 Component: Home,
 
@@ -34,21 +34,21 @@ export const router = createBrowserRouter([
 
             }, {
                 path: "all-packages",
-                // loader: () => fetch("http://localhost:3000/appTourPackages"),
+                // loader: () => fetch("https://tour-management-server-ashen.vercel.app/appTourPackages"),
                 HydrateFallback: Loading,
                 Component: AllPackages
 
             }, {
                 path: "PackageDetails/:id",
-                loader: ({ params }) => fetch(`http://localhost:3000/PackageDetails/${params.id}`),
+                loader: ({ params }) => fetch(`https://tour-management-server-ashen.vercel.app/PackageDetails/${params.id}`),
                 HydrateFallback: Loading,
                 element: <PrivateProvider>
                     <PackageDetails />
                 </PrivateProvider>
 
-            },{
-                path:"aboutUs",
-                Component:AboutUs
+            }, {
+                path: "aboutUs",
+                Component: AboutUs
 
             },
             {
@@ -71,7 +71,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/updateMyPosted/:id",
-                loader: ({ params }) => fetch(`http://localhost:3000/updateMyPosted/${params.id}`),
+                loader: ({ params }) => fetch(`https://tour-management-server-ashen.vercel.app/updateMyPosted/${params.id}`),
                 HydrateFallback: Loading,
 
                 element: <PrivateProvider>

@@ -15,7 +15,7 @@ const MyBooking = () => {
     const axiosSecure = UseAxiosSecure()
 
     useEffect(() => {
-        axiosSecure(`http://localhost:3000/myBooking/${user?.email}`).then(res => {
+        axiosSecure(`https://tour-management-server-ashen.vercel.app/myBooking/${user?.email}`).then(res => {
             setdata(res.data),
                 setloading(false)
         }).catch(error => {
@@ -32,7 +32,7 @@ const MyBooking = () => {
         const status = { status: e.target.value }
         console.log(status)
 
-        axios.patch(`http://localhost:3000/bookingsStatus/${application}`, status).then(res => {
+        axios.patch(`https://tour-management-server-ashen.vercel.app/bookingsStatus/${application}`, status).then(res => {
             console.log(res.data)
         }).catch(error => {
             console.log(error)

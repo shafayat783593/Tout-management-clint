@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { useLoaderData, useNavigate } from "react-router";
-import banner  from "../../assets/tourbanner.jpg"
+import banner from "../../assets/tourbanner.jpg"
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "../Loading/Loading";
@@ -13,22 +13,22 @@ import TopDestinations from "../destinations/Destinations";
 export default function Home() {
   const [loading, setloading] = useState(true)
   const [packages, setpackages] = useState([])
-  const {user}= UseAuth()
+  const { user } = UseAuth()
   useEffect(() => {
 
-    axios("http://localhost:3000/appTourPackages").then(res => {
+    axios("https://tour-management-server-ashen.vercel.app/appTourPackages").then(res => {
       setpackages(res.data)
       setloading(false)
     }).catch(error => {
       console.error(error);
-      setloading(false); 
+      setloading(false);
     })
   }, [])
   console.log(packages)
 
   const navigate = useNavigate();
-  if (loading){
-  return  <Loading />
+  if (loading) {
+    return <Loading />
 
   }
   return (
@@ -63,18 +63,6 @@ export default function Home() {
             Explore All Packages
           </motion.button>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-        
       </motion.section>
 
 
@@ -84,7 +72,7 @@ export default function Home() {
         <h2 className="text-3xl font-bold mb-10 text-center">Featured Packages</h2>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {packages.slice(0, 6).map((pkg) => (
+          {packages?.slice(0, 6).map((pkg) => (
             <motion.div
               key={pkg._id}
               className="bg-white shadow-md rounded-xl overflow-hidden"
@@ -118,9 +106,9 @@ export default function Home() {
 
                 <button
                   onClick={() => user ? navigate(`/PackageDetails/${pkg._id}`) : navigate("/login")}
-                
-                
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm cursor-pointer">
+
+
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm cursor-pointer">
                   View Details
                 </button>
               </div>
@@ -145,10 +133,10 @@ export default function Home() {
 
       <section>
 
-        <Carousel/>
+        <Carousel />
       </section>
       <section className="my-4">
-        <TopDestinations/>
+        <TopDestinations />
       </section>
     </div>
   );
