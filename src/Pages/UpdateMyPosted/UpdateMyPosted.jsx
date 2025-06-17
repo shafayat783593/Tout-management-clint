@@ -16,8 +16,7 @@ function UpdateMyPosted() {
         , guidEmail, duration, destination, departureLocation, _id } = useLoaderData()
 
     const { user } = UseAuth()
-    console.log(contactNo, tourName, price, photo, packageDetails, guidname, guidPhoto
-        , guidEmail, duration, destination, departureLocation, _id)
+ 
 
 
     const [submitting, setSubmitting] = useState(false);
@@ -49,7 +48,7 @@ function UpdateMyPosted() {
 
 
         }).catch(error => {
-            console.log(error)
+         
         })
     }
 

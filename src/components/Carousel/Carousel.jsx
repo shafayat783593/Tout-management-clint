@@ -47,7 +47,7 @@ export default function AutoCarousel() {
 
 
                     onClick={() => {
-                        console.log("Image clicked");
+                        
                         user ? navigate(`/PackageDetails/${data[current]._id}`) : navigate("/login");
                     }}
                 >

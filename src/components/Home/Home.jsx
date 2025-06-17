@@ -24,7 +24,7 @@ export default function Home() {
       setloading(false);
     })
   }, [])
-  console.log(packages)
+
 
   const navigate = useNavigate();
   if (loading) {

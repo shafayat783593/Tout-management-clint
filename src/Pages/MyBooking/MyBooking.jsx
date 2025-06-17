@@ -19,25 +19,25 @@ const MyBooking = () => {
             setdata(res.data),
                 setloading(false)
         }).catch(error => {
-            console.log(error)
+          
             setloading(false)
 
         })
     }, [user?.email, axiosSecure])
-    console.log(data)
+    
 
 
 
     const handelstatusChange = (e, application) => {
         const status = { status: e.target.value }
-        console.log(status)
+      
 
         axios.patch(`https://tour-management-server-ashen.vercel.app/bookingsStatus/${application}`, status).then(res => {
-            console.log(res.data)
+            // console.log(res.data)
         }).catch(error => {
-            console.log(error)
+          
         })
-        console.log(e.target.value, application)
+        
 
 
 

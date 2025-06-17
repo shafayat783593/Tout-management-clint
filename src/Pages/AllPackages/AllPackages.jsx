@@ -46,7 +46,6 @@ function AllPackages() {
 
 
 
-    console.log(searchTerm)
 
     if (loading) {
         return (

@@ -14,11 +14,10 @@ const TourForm = () => {
 
     const formRef = useRef(null);
     const [departureDate, setDepartureDate] = useState(new Date());
-    const [imagePreview, setImagePreview] = useState(null);
     const [submitting, setSubmitting] = useState(false);
     const { user } = UseAuth()
     const navigate = useNavigate()
-    console.log(user.email)
+ 
 
     //   const handleImageChange = (e) => {
     //     const file = e.target.files[0];
@@ -50,13 +49,13 @@ const TourForm = () => {
 
 
         axios.post("https://tour-management-server-ashen.vercel.app/addTourPackages", newtravels).then(function (response) {
-            console.log(response.data);
+            // console.log(response.data);
         })
             .catch(function (error) {
-                console.log(error);
+              
             });
 
-        console.log('Form Data:', newtravels);
+        // console.log('Form Data:', newtravels);
 
         // Here you would typically send the data to your API
         // Example: fetch('/api/tours', { method: 'POST', body: formData });

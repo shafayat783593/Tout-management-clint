@@ -19,7 +19,7 @@ function UseAxiosSecure() {
     axiosInstance.interceptors.response.use(res => res, err => {
         if (err.status === 401 || err.status === 403) {
             logOut().then(() => {
-                console.log(`You are logged out because of an errorn with  ${err.status} code`)
+                // console.log(`You are logged out because of an errorn with  ${err.status} code`)
             }).catch(err => console.log(err))
 
         }

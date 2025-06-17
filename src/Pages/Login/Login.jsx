@@ -44,7 +44,7 @@ function Login() {
 
 
         }).catch(error => {
-            console.log(error)
+           
         })
     }
 
@@ -57,7 +57,7 @@ function Login() {
 
 
         }).catch(error => {
-            console.log(error)
+            
         })
         
     }

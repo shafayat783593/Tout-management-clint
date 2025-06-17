@@ -17,8 +17,7 @@ function PackageDetails() {
     const tour = useLoaderData();
     const navigate = useNavigate();
     const [BookingCount, setBookingCount] = useState(tour.bookingCount || 0);
-    console.log(tour.guidEmail)
-    console.log(user.email)
+   
 
     const handleBooking = async () => {
         // if (!user) {
