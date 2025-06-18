@@ -42,7 +42,7 @@ function ForgetPassword() {
                 // style={{ backgroundImage: `url(${loginbackground})` }}
                 >
                     <form onSubmit={handelSubmit} className="space-y-6" action="">
-                        <input name="email" type="Email" placeholder="Type here" className="input dark:bg-gray-700 dark:text-white" />
+                        <input name="email" type="Email" placeholder="Type here Email" className="input dark:bg-gray-700 dark:text-white" />
                         <button type="submit" className="btn btn-primary w-80">
                             Send a link
                         </button>

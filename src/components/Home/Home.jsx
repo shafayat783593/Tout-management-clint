@@ -43,7 +43,7 @@ export default function Home() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        {/* Overlay */}
+      
         <div className="absolute inset-0  bg-opacity-60 z-0" />
 
         {/* Content */}
@@ -105,7 +105,7 @@ export default function Home() {
                 <p className="text-lg font-bold text-gray-800">{pkg.price}</p>
 
                 <button
-                  onClick={() => user ? navigate(`/PackageDetails/${pkg._id}`) : navigate("/login")}
+                  onClick={() => user ? navigate(`/PackageDetails/${pkg._id}`) : navigate("/auth/login")}
 
 
                   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm cursor-pointer">

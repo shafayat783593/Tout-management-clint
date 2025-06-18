@@ -10,7 +10,7 @@ function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true)
  
 
-    c
+    
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -58,10 +58,7 @@ function AuthProvider({ children }) {
                 }).then(res => {
 
                 })
-            } else {
-
-
-            }
+            } 
             setLoading(false)
         })
         return () => {

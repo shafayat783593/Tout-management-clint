@@ -107,7 +107,7 @@ function AllPackages() {
 
                                 <button
                                     onClick={() =>
-                                        user ? navigate(`/PackageDetails/${tour._id}`) : navigate("/login")
+                                        user ? navigate(`/PackageDetails/${tour._id}`) : navigate("/auth/login")
                                     }
                                     className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md text-sm font-medium"
                                 >

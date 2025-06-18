@@ -1,6 +1,7 @@
 import { createBrowserRouter, } from "react-router";
 import HomeLayout from "../Layout/HomeLayout";
 import Home from "../components/Home/Home";
+
 import AuthLayout from "../Layout/AuthLayout";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
@@ -26,7 +27,7 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 path: "/",
-                loader: () => fetch("https://tour-management-server-ashen.vercel.app/appTourPackages"),
+                // loader: () => fetch("https://tour-management-server-ashen.vercel.app/appTourPackages"),
                 HydrateFallback: Loading,
                 Component: Home,
 

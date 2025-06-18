@@ -71,12 +71,24 @@ const Footer = () => {
                     {/* Column 4: Logo */}
                     <motion.div variants={fadeIn} className="flex flex-col items-center">
                         <div className="text-3xl font-bold mb-2">
-                      <div className=' '>
-                                             <Link className='flex text-center items-center justify-center' to="/">
-                                                 <img className='w-[60px]  ' src={logo} alt="Logo" />
-                                                 <h1 className='text-xl hidden md:block'>Booking Management </h1>
-                                             </Link>
-                                         </div>
+                     <div className="hover:scale-[1.02] transition-transform duration-200">
+                                           <Link
+                                               className="flex items-center justify-center gap-2 group"
+                                               to="/"
+                                           >
+                                             
+                                               <img
+                                                   className="w-[60px] group-hover:drop-shadow-lg transition-all duration-300"
+                                                   src={logo}
+                                                   alt="BookEase Logo"
+                                               />
+                   
+                                       
+                                               <h1 className="hidden md:block text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:from-blue-700 group-hover:to-cyan-500 transition-all duration-500 tracking-tight">
+                                                   Booking Management
+                                               </h1>
+                                           </Link>
+                                       </div>
                         </div>
                         <p className="text-sm text-gray-400">© 2025 package management. All rights reserved.</p>
                     </motion.div>

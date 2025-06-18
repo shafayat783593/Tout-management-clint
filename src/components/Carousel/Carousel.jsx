@@ -32,7 +32,7 @@ export default function AutoCarousel() {
     // const next = () => setCurrent((prev) => (prev + 1) % data.length);
 
     if (!data.length) {
-        return Loading;
+        return <Loading/>
     }
 
     return (
@@ -48,7 +48,7 @@ export default function AutoCarousel() {
 
                     onClick={() => {
                         
-                        user ? navigate(`/PackageDetails/${data[current]._id}`) : navigate("/login");
+                        user ? navigate(`/PackageDetails/${data[current]._id}`) : navigate("/auth/login");
                     }}
                 >
                     <motion.div

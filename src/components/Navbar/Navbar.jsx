@@ -11,7 +11,8 @@ function Navbar() {
     // const { darkMode, setdarkMode } = use(ThemContext)
 
     const { user, logOut } = UseAuth()
-  
+   
+
 
 
 
@@ -55,12 +56,12 @@ function Navbar() {
                 <div className="  gap-6 ">
                     <div className="dropdown ">
 
-                        <div tabIndex={0} role="button" className=" text-black btn btn-ghost lg:hidden ">
+                        <div tabIndex={0} role="button" className=" text-neutral btn btn-ghost lg:hidden ">
                             <CiMenuBurger className='text-4xl' />
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-12  h-96 ">
+                            className="menu menu-sm dropdown-content bg-base-100  text-neutral rounded-box z-1 mt-3 w-52 p-2 shadow space-y-12  h-96 ">
 
                             <div className='flex flex-col gap-15'>
                                 {navigation}
@@ -107,11 +108,22 @@ function Navbar() {
 
                 <div className='flex justify-around items-center'>
 
+                    <div className="hover:scale-[1.02] transition-transform duration-200">
+                        <Link
+                            className="flex items-center justify-center gap-2 group"
+                            to="/"
+                        >
 
-                    <div className=' '>
-                        <Link className='flex  text-center items-center justify-center' to="/">
-                            <img className='w-[60px]  ' src={logo} alt="Logo" />
-                            <h1 className='text-xl hidden md:block'>Booking Management </h1>
+                            <img
+                                className="w-[60px] group-hover:drop-shadow-lg transition-all duration-300"
+                                src={logo}
+                                alt="BookEase Logo"
+                            />
+
+
+                            <h1 className="hidden md:block text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:from-blue-700 group-hover:to-cyan-500 transition-all duration-500 tracking-tight">
+                                Booking Management
+                            </h1>
                         </Link>
                     </div>
 
@@ -126,12 +138,11 @@ function Navbar() {
 
                             {user && (
                                 <div className="dropdown dropdown-hover mr-30 lg:ml-0">
-                                    <img
-                                        tabIndex={0}
-                                        className='w-18 lg:w-24 rounded-full'
-                                        src={user?.photoURL || "https://img.icons8.com/?size=96&id=80976&format=png"}
-                                        alt="User Profile"
-                                    />                                    <ul tabIndex={0} className=" space-y-4 dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                                    <img className='w-50 rounded-4xl' src={user?.photoURL} alt="" />
+                                    {/* <img  className=' w-12 rounded-full' src={user?.photoURL} alt="" /> */}
+
+
+                                    <ul tabIndex={0} className=" space-y-4 dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                                         {
                                             user && profileDropdown
                                         }
