@@ -60,6 +60,10 @@ export default function TopDestinations() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: i * 0.1 }}
                         viewport={{ once: true }}
+                        whileHover={{
+                            scale: 1.03,
+                            boxShadow: "0 10px 20px rgba(59, 130, 246, 0.3)",
+                        }}
                     >
                         <img src={dest.img} alt={dest.name} className="w-full h-48 object-cover" />
                         <div className="p-4">

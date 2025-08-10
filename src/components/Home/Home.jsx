@@ -11,6 +11,7 @@ import UseAuth from "../../Hooks/UseAuth";
 import Carousel from "../Carousel/Carousel";
 import TopDestinations from "../destinations/Destinations";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
+import FeaturedPackages from "../../Pages/FeaturPackage";
 export default function Home() {
   const [loading, setloading] = useState(true)
   const [packages, setpackages] = useState([])
@@ -94,7 +95,11 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+              whileHover={{
+                scale: 1.02,
+                boxShadow: "0 10px 20px rgba(59, 130, 246, 0.3)",
+              }}
             >
               <img src={pkg.photo} alt={pkg.tourName} className="w-full h-48 object-cover" />
               <div className="p-4 text-left space-y-2">
@@ -167,6 +172,10 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.5, delay: i * 0.15 }}
                 viewport={{ once: true }}
+                whileHover={{
+                  scale: 1.03,
+                  boxShadow: "0 10px 20px rgba(59, 130, 246, 0.3)",
+                }}
               >
                 <img
                   src={spacial.photo}
@@ -195,7 +204,7 @@ export default function Home() {
         </div>
       </section>
 
-
+<FeaturedPackages/>
 
 
     </div>
