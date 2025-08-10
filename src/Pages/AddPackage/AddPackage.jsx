@@ -111,11 +111,16 @@ const TourForm = () => {
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
+                whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 10px 20px rgba(59, 130, 246, 0.3)",
+                }}
             >
                 <h2 className="text-3xl font-bold text-center mb-8 text-indigo-700">Create New Tour Package</h2>
 
                 <form ref={formRef} onSubmit={handleSubmit}>
-                    <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6" variants={containerVariants}>
+                    <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6" variants={containerVariants}
+                    >
                         {/* Tour Name */}
                         <motion.div variants={itemVariants}>
                             <label className="block text-sm font-medium  mb-1 flex items-center">

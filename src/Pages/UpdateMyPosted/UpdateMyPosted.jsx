@@ -86,6 +86,10 @@ function UpdateMyPosted() {
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
+                whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 10px 20px rgba(59, 130, 246, 0.3)",
+                }}
             >
                 <h2 className="text-3xl font-bold text-center mb-8 text-indigo-700">Update Tour Package</h2>
 
