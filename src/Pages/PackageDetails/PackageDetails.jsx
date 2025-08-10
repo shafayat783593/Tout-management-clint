@@ -178,7 +178,7 @@ function PackageDetails() {
                             <div className="flex justify-end mt-4 gap-2">
                                 <button
                                     onClick={() => setShowModal(false)}
-                                    className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400"
+                                    className="px-4 py-2 rounded  bg-info  hover:bg-gray-400"
                                 >
                                     Cancel
                                 </button>

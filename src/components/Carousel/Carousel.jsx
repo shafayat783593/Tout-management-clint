@@ -28,10 +28,42 @@ export default function AutoCarousel() {
         return () => clearInterval(interval);
     }, [data.length]);
 
+    const prevSlide = () => {
+        setCurrent((prev) => (prev - 1 + data.length) % data.length);
+    };
+
+    const nextSlide = () => {
+        setCurrent((prev) => (prev + 1) % data.length);
+    };
+
     if (!data.length) {
         return <Loading />;
     }
 
+
+
+    <button
+        onClick={(e) => {
+            e.stopPropagation();
+            prevSlide();
+        }}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white bg-opacity-70 hover:bg-opacity-90 text-blue-600 rounded-full p-3 shadow-lg"
+        aria-label="Previous Slide"
+    >
+        {/* SVG */}
+    </button>
+
+    {/* Right Button */ }
+    <button
+        onClick={(e) => {
+            e.stopPropagation();
+            nextSlide();
+        }}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white bg-opacity-70 hover:bg-opacity-90 text-blue-600 rounded-full p-3 shadow-lg"
+        aria-label="Next Slide"
+    >
+        {/* SVG */}
+    </button>
     return (
         <div className="relative w-full max-w-6xl mx-auto rounded-lg overflow-hidden">
             {/* Heading */}
@@ -39,8 +71,9 @@ export default function AutoCarousel() {
                 Best Hotels for Your Next Trip
             </div>
             <p className="mb-6 text-gray-500 text-center max-w-3xl mx-auto">
-                Luxurious or budget-friendly hotels, villas or resorts — browse accommodations at ShareTrip that meet your needs.
-                Book long-term or short-term accommodation from our hotel deals.
+                Luxurious or budget-friendly hotels, villas or resorts — browse
+                accommodations at ShareTrip that meet your needs. Book long-term or
+                short-term accommodation from our hotel deals.
             </p>
 
             {/* Carousel */}
@@ -100,6 +133,48 @@ export default function AutoCarousel() {
                         </div>
                     </motion.div>
                 </AnimatePresence>
+
+                {/* Left Button */}
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        prevSlide();
+                    }}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white bg-opacity-70 hover:bg-opacity-90 text-blue-600 rounded-full p-3 shadow-lg"
+                    aria-label="Previous Slide"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                {/* Right Button */}
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        nextSlide();
+                    }}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white bg-opacity-70 hover:bg-opacity-90 text-blue-600 rounded-full p-3 shadow-lg"
+                    aria-label="Next Slide"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
             </div>
 
             {/* Indicator Dots */}
@@ -109,8 +184,8 @@ export default function AutoCarousel() {
                         key={i}
                         onClick={() => setCurrent(i)}
                         className={`h-3 w-3 rounded-full transition-all duration-300 ${i === current
-                            ? "bg-blue-500 scale-125 shadow-lg shadow-blue-400/50"
-                            : "bg-gray-300 hover:bg-gray-400"
+                                ? "bg-blue-500 scale-125 shadow-lg shadow-blue-400/50"
+                                : "bg-gray-300 hover:bg-gray-400"
                             }`}
                         whileHover={{ scale: 1.2 }}
                     ></motion.button>
