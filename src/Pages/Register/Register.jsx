@@ -96,7 +96,7 @@ function Register() {
 <>
             <PageTitle  title="Register" /> 
 
-        <div className='flex justify-center items-center py-5 '>
+        <div className='flex justify-center items-center py-5 mt-30 '>
 
 
             <motion.div

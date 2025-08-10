@@ -7,10 +7,10 @@ function AuthLayout() {
         <>
 
 
-            <header className='w-11/12 mx-auto '>
+            {/* <header className='w-11/12 mx-auto '>
                 <Navbar />
 
-            </header>
+            </header> */}
             <main>
                 <Outlet />
             </main>

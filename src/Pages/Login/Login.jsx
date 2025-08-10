@@ -68,7 +68,7 @@ function Login() {
 
 
 
-            <div className='flex justify-center items-center py-5 '>
+            <div className='flex justify-center items-center py-5 mt-30 '>
 
 
                 <motion.div
@@ -83,9 +83,9 @@ function Login() {
                     <form
                         onSubmit={handelSubmit}
 
-                        className="form shadow-2xl ">
+                        className="form shadow-2xl w-80 ">
                         <p className="title">Login</p>
-                        <p className="message">Signup now and get full access to our app.</p>
+                        <p className="message">Login now and get full access to our app.</p>
 
                         <label>
                             <input required placeholder="" name='email' type="email" className="input" />
