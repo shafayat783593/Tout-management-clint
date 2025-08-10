@@ -78,11 +78,15 @@ function AllPackages() {
                     {filteredTours.map((tour, i) => (
                         <motion.div
                             key={tour._id}
-                            className="bg-white rounded-xl overflow-hidden shadow-lg"
+                            className=" rounded-xl overflow-hidden shadow-lg"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.05 }}
+                            whileHover={{
+                                scale: 1.03,
+                                boxShadow: "0 10px 20px rgba(59, 130, 246, 0.3)",
+                            }}
                         >
                             <img
                                 src={tour?.photo}
@@ -98,11 +102,11 @@ function AllPackages() {
                                         alt={tour?.guidname}
                                         className="w-8 h-8 rounded-full"
                                     />
-                                    <span className="text-sm text-neutral">{tour?.guidname}</span>
+                                    <span className="text-sm">{tour?.guidname}</span>
                                 </div>
 
-                                <p className="text-sm text-neutral mb-1">🕒 {tour?.duration}</p>
-                                <p className="text-sm mb-1 text-neutral ">📅 {tour?.date}</p>
+                                <p className="text-sm  mb-1">🕒 {tour?.duration}</p>
+                                <p className="text-sm mb-1  ">📅 {tour?.date}</p>
                                 <p className="text-lg font-bold text-blue-700 mb-4">${tour?.price}</p>
 
                                 <button

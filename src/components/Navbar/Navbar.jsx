@@ -164,12 +164,7 @@ function Navbar() {
 
                                     <ul
                                         tabIndex={0}
-                                        className="
-  space-y-4 mr-0 dropdown-content menu bg-base-100 rounded-box 
-    z-50 w-52 p-2 shadow-sm
-    lg:left-auto lg:translate-x-0
-    left-[-50%] -translate-x-1/2 top-full
-      "
+                                        className="space-y-4 mr-0 dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 shadow-smlg:left-auto lg:translate-x-0left-[-50%] -translate-x-1/2 top-full"
                                     >
                                         {user && profileDropdown}
 

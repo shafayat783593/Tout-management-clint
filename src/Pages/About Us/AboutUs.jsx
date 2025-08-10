@@ -26,6 +26,7 @@ function AboutUs() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
+                
                 className="text-center text-lg text-base-content/70 mb-12"
             >
                 We are passionate about creating unforgettable travel experiences. Our mission is to connect explorers with the best guides and destinations.
@@ -34,7 +35,12 @@ function AboutUs() {
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                
                 <motion.div
-                    whileHover={{ scale: 1.05 }}
+                
+                    // whileHover={{ scale: 1.05 }}
+                    whileHover={{
+                        scale: 1.03,
+                        boxShadow: "0 10px 20px rgba(59, 130, 246, 0.3)",
+                    }}
                     className="bg-base-100 shadow-lg p-6 rounded-lg text-center"
                 >
                     <FaUsers className="text-4xl text-blue-500 mx-auto mb-4" />
@@ -46,7 +52,10 @@ function AboutUs() {
 
               
                 <motion.div
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{
+                        scale: 1.03,
+                        boxShadow: "0 10px 20px rgba(59, 130, 246, 0.3)",
+                    }}
                     className="bg-base-100 shadow-lg p-6 rounded-lg text-center"
                 >
                     <FaMapMarkedAlt className="text-4xl text-green-500 mx-auto mb-4" />
@@ -58,7 +67,10 @@ function AboutUs() {
 
             
                 <motion.div
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{
+                        scale: 1.03,
+                        boxShadow: "0 10px 20px rgba(59, 130, 246, 0.3)",
+                    }}
                     className="bg-base-100 shadow-lg p-6 rounded-lg text-center"
                 >
                     <FaHandsHelping className="text-4xl text-yellow-500 mx-auto mb-4" />
