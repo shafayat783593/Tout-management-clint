@@ -52,7 +52,7 @@ const TourForm = () => {
 
 
 
-        axios.post("http://localhost:3000/addTourPackages", newtravels).then(function (response) {
+        axios.post("https://tour-management-server-ashen.vercel.app/addTourPackages", newtravels).then(function (response) {
             // console.log(response.data);
         })
             .catch(function (error) {

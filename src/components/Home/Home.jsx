@@ -30,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
 
-    axios("http://localhost:3000/appTourPackages").then(res => {
+    axios("https://tour-management-server-ashen.vercel.app/appTourPackages").then(res => {
       setpackages(res.data)
       setloading(false)
     }).catch(error => {
@@ -204,7 +204,7 @@ export default function Home() {
         </div>
       </section>
 
-<FeaturedPackages/>
+      <FeaturedPackages />
 
 
     </div>

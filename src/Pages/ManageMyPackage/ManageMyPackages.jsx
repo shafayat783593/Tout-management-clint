@@ -15,7 +15,7 @@ function ManageMyPackages() {
     const axiosSecure = UseAxiosSecure()
     useEffect(() => {
 
-        axiosSecure(`http://localhost:3000/manageMyPackages/${user.email}`).then(res => {
+        axiosSecure(`https://tour-management-server-ashen.vercel.app/manageMyPackages/${user.email}`).then(res => {
 
             setTasks(res?.data);
             setloading(false);
@@ -41,7 +41,7 @@ function ManageMyPackages() {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:3000/deleteMyPost/${id}`).then(res => {
+                axios.delete(`https://tour-management-server-ashen.vercel.app/deleteMyPost/${id}`).then(res => {
                     if (res.data.deletedCount > 0) {
                         setTasks((prev) => prev.filter((task) => task._id !== id));
                         Swal.fire("Deleted!", "Task has been deleted.", "success");

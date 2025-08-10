@@ -30,7 +30,7 @@ function UpdateMyPosted() {
         const formData = new FormData(form)
         const updateMyPosted = Object.fromEntries(formData.entries())
 
-        axios.put(`http://localhost:3000/updateTourPackages/${_id}`, updateMyPosted).then(res => {
+        axios.put(`https://tour-management-server-ashen.vercel.app/updateTourPackages/${_id}`, updateMyPosted).then(res => {
 
 
             setTimeout(() => {

@@ -12,7 +12,7 @@ export default function AutoCarousel() {
     const { user } = UseAuth();
 
     useEffect(() => {
-        axios("http://localhost:3000/appTourPackages")
+        axios("https://tour-management-server-ashen.vercel.app/appTourPackages")
             .then((res) => {
                 setData(res.data);
             })
@@ -184,8 +184,8 @@ export default function AutoCarousel() {
                         key={i}
                         onClick={() => setCurrent(i)}
                         className={`h-3 w-3 rounded-full transition-all duration-300 ${i === current
-                                ? "bg-blue-500 scale-125 shadow-lg shadow-blue-400/50"
-                                : "bg-gray-300 hover:bg-gray-400"
+                            ? "bg-blue-500 scale-125 shadow-lg shadow-blue-400/50"
+                            : "bg-gray-300 hover:bg-gray-400"
                             }`}
                         whileHover={{ scale: 1.2 }}
                     ></motion.button>

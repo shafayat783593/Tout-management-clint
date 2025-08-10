@@ -54,7 +54,7 @@ function AuthProvider({ children }) {
             console.log(currentUser?.email)
 
             if (currentUser?.email) {
-                axios.post("http://localhost:3000/jwt", {
+                axios.post("https://tour-management-server-ashen.vercel.app/jwt", {
                     email: currentUser?.email
                 }).then(res => {
 

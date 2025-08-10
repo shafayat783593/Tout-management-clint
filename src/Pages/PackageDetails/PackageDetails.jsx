@@ -64,10 +64,10 @@ function PackageDetails() {
         };
 
         try {
-            const bookingResponse = await axios.post("http://localhost:3000/bookTourPackage", booking);
+            const bookingResponse = await axios.post("https://tour-management-server-ashen.vercel.app/bookTourPackage", booking);
 
             if (bookingResponse.data.insertedId) {
-                const countResponse = await axios.patch(`http://localhost:3000/bookingCount/${tour._id}`);
+                const countResponse = await axios.patch(`https://tour-management-server-ashen.vercel.app/bookingCount/${tour._id}`);
 
                 if (countResponse.data.modifiedCount > 0) {
                     setBookingCount(prev => prev + 1);
