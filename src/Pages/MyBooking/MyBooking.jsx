@@ -71,15 +71,15 @@ const MyBooking = () => {
 
                 {
                     data.length === 0 ? (
-                        <p className="text-center text-gray-600 font-xl">
+                        <p className="text-center text-base-content font-xl">
                             You haven’t booked any packages yet.
                         </p>
                     ) : (
                         <>
                             {/* Desktop Table */}
                             <div className="hidden md:block overflow-x-auto">
-                                <table className="min-w-full bg-neutral-content border border-gray-200 shadow-lg rounded-xl overflow-hidden">
-                                    <thead className="bg-blue-600 text-white text-left">
+                                    <table className="min-w-full  border border-gray-200 shadow-lg rounded-xl overflow-hidden">
+                                    <thead className="bg-blue-600 text-left">
                                         <tr>
                                             <th className="py-3 px-4">Tour Name</th>
                                             <th className="py-3 px-4">Guide + Contact</th>
@@ -93,25 +93,25 @@ const MyBooking = () => {
                                         {data.map((booking, index) => (
                                             <motion.tr
                                                 key={booking._id}
-                                                className="border-b hover:bg-gray-100 transition"
+                                                className="border-b hover:bg-base-content/50  transition"
                                                 initial={{ opacity: 0, y: 10 }}
                                                 whileInView={{ opacity: 1, y: 0 }}
                                                 viewport={{ once: true }}
                                                 transition={{ duration: 0.3, delay: index * 0.1 }}
                                             >
-                                                <td className="py-3 px-4 font-medium text-neutral">{booking.tourName}</td>
+                                                <td className="py-3 px-4 font-medium text-base-content">{booking.tourName}</td>
                                                 <td className="py-3 px-4">
                                                     <div className="flex flex-col gap-1">
                                                         <span className="font-semibold">{booking.guidname}</span>
-                                                        <span className="flex items-center gap-2 text-sm text-gray-600">
+                                                        <span className="flex items-center gap-2 text-sm text-base-content">
                                                             <FaPhone className="text-green-600" /> {booking.contactNo}
                                                         </span>
                                                     </div>
                                                 </td>
-                                                <td className="py-3 px-4 flex items-center gap-2 text-sm text-gray-700">
+                                                <td className="py-3 px-4 flex items-center gap-2 text-sm text-base-content">
                                                     <FaCalendarAlt className="text-blue-500" /> {booking.bookingDate}
                                                 </td>
-                                                <td className="py-3 px-4 text-neutral">
+                                                <td className="py-3 px-4 text-base-contentl">
                                                     <span className="flex items-center gap-2">
                                                         <FaMapMarkerAlt className="text-red-500 " />
                                                         {booking.departureLocation} →
@@ -119,7 +119,7 @@ const MyBooking = () => {
                                                         {booking.destination}
                                                     </span>
                                                 </td>
-                                                <td className="py-3 px-4 text-sm text-gray-700">{booking.specialNote || "NO add spical info"}</td>
+                                                <td className="py-3 px-4 text-sm text-base-content">{booking.specialNote || "NO add spical info"}</td>
                                                 <td className="py-3 px-4 text-center">
                                                     <select
                                                         onChange={(e) => handelstatusChange(e, booking._id)}
@@ -142,14 +142,14 @@ const MyBooking = () => {
                                 {data.map((booking, index) => (
                                     <motion.div
                                         key={booking._id}
-                                        className="bg-white shadow-md rounded-lg p-4 border border-gray-200"
+                                        className=" shadow-md rounded-lg p-4 border border-gray-200"
                                         initial={{ opacity: 0, y: 10 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.3, delay: index * 0.1 }}
                                     >
                                         <h3 className="text-lg font-bold text-blue-600">{booking.tourName}</h3>
-                                        <div className="mt-2 text-sm text-gray-700">
+                                        <div className="mt-2 text-sm text-base-content">
                                             <p className="flex items-center gap-2 font-semibold">
                                                 <FaPhone className="text-green-600" /> {booking.guidname} ({booking.contactNo})
                                             </p>

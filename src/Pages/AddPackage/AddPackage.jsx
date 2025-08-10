@@ -107,7 +107,7 @@ const TourForm = () => {
             <motion.div
 
 
-                className="max-w-3xl mx-auto p-6 bg-neutral-content rounded-xl shadow-lg"
+                className="max-w-3xl mx-auto p-6 bg-base-200 rounded-xl shadow-lg"
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
@@ -118,13 +118,13 @@ const TourForm = () => {
                     <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6" variants={containerVariants}>
                         {/* Tour Name */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiInfo className="mr-2" /> Tour Name
                             </label>
                             <input
                                 type="text"
                                 name="tourName"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2  focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
@@ -133,7 +133,7 @@ const TourForm = () => {
 
                         {/* Image Upload */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
 
                                 <MdAddPhotoAlternate className="mr-2" />  Tour Photo
                             </label>
@@ -143,27 +143,27 @@ const TourForm = () => {
                                 type="url"
                                 name="photo"
 
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2  focus:ring-indigo-500 focus:border-indigo-500"
                             />
                         </motion.div>
 
                         {/* Duration */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium   mb-1 flex items-center">
                                 <FiCalendar className="mr-2" /> Duration
                             </label>
                             <input
                                 type="text"
                                 name="duration"
                                 placeholder="e.g., 3 Days 2 Nights"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2  focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
 
                         {/* Departure Location */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiMapPin className="mr-2" /> Departure Location
                             </label>
                             <input
@@ -176,36 +176,36 @@ const TourForm = () => {
 
                         {/* Destination */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiMapPin className="mr-2" /> Destination
                             </label>
                             <input
                                 type="text"
                                 name="destination"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2  focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
 
                         {/* Price */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiDollarSign className="mr-2" /> Price
                             </label>
                             <input
                                 type="number"
                                 name="price"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2  focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
 
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 Is this a special package?
                             </label>
                             <div className="flex items-center gap-6">
-                                <label className="flex items-center gap-2 text-gray-500">
+                                <label className="flex items-center gap-2 ">
                                     <input
                                         type="radio"
                                         name="specialPackage"
@@ -216,7 +216,7 @@ const TourForm = () => {
                                     />
                                     Yes
                                 </label>
-                                <label className="flex items-center gap-2 text-gray-500">
+                                <label className="flex items-center gap-2 ">
                                     <input
                                         type="radio"
                                         name="specialPackage"
@@ -233,12 +233,12 @@ const TourForm = () => {
                         {/* Discount Field */}
                         {specialPackage && (
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center  ">Discount (%)</label>
+                                <label className="block text-sm font-medium  mb-1 flex items-center  ">Discount (%)</label>
                                 <input
                                     type="number"
                                     value={discount}
                                     onChange={(e) => setDiscount(e.target.value)}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2  focus:ring-indigo-500 focus:border-indigo-500"
                                     placeholder="Enter discount percentage"
                                     min="0"
                                     max="100"
@@ -248,7 +248,7 @@ const TourForm = () => {
 
                         {/* Departure Date */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiCalendar className="mr-2" /> Departure Date
                             </label>
                             <DatePicker
@@ -256,7 +256,7 @@ const TourForm = () => {
                                 onChange={(date) => setDepartureDate(date)}
                                 minDate={new Date()}
                                 name='date'
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2  focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
@@ -266,33 +266,33 @@ const TourForm = () => {
 
                         {/* Package Details */}
                         <motion.div className="md:col-span-2" variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiInfo className="mr-2" /> Package Details
                             </label>
                             <textarea
                                 name="packageDetails"
                                 rows={4}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2  focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
 
                         {/* Contact No */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiPhone className="mr-2" /> Contact Number
                             </label>
                             <input
                                 type="tel"
                                 name="contactNo"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg  text-neutral focus:ring-2text-neutral focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg  focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
 
                         {/* Guide name (simulated file input) */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiUser className="mr-2" /> Guide Name
                             </label>
                             <input
@@ -301,11 +301,11 @@ const TourForm = () => {
                                 type="text"
                                 // name="guidName"
 
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             />
                         </motion.div>
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <MdAddPhotoAlternate className="mr-2" />  Guide Photo
                             </label>
                             <input
@@ -314,13 +314,13 @@ const TourForm = () => {
                                 type="url"
                                 // name="guidePhoto"
 
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg text-neutral focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg  focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             />
                         </motion.div>
 
                         {/* Guide Email */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <MdEmail className="mr-2" /> Guide Email
                             </label>
                             <input
@@ -328,7 +328,7 @@ const TourForm = () => {
                                 readOnly
                                 type="email"
                                 // name="guideEmail"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg  text-neutral focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg   focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>

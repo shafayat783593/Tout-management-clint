@@ -82,7 +82,7 @@ function UpdateMyPosted() {
             <PageTitle title="Update Mypackage" />
 
             <motion.div
-                className="max-w-3xl mx-auto p-6 bg-neutral-content rounded-xl shadow-lg"
+                className="max-w-3xl mx-auto p-6 bg-base-200 rounded-xl shadow-lg"
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
@@ -93,21 +93,21 @@ function UpdateMyPosted() {
                     <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6" variants={containerVariants}>
                         {/* Tour Name */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiInfo className="mr-2" /> Tour Name
                             </label>
                             <input
                                 defaultValue={tourName}
                                 type="text"
                                 name="tourName"
-                                className="w-full px-4 py-2 border text-neutral border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border  border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
 
                         {/* Image Upload */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
 
                                 <MdAddPhotoAlternate className="mr-2" />  Tour Photo
                             </label>
@@ -117,13 +117,13 @@ function UpdateMyPosted() {
                                 type="url"
                                 name="photo"
 
-                                className="w-full px-4 py-2 text-neutral border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2  border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             />
                         </motion.div>
 
                         {/* Duration */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiCalendar className="mr-2" /> Duration
                             </label>
                             <input
@@ -131,56 +131,56 @@ function UpdateMyPosted() {
                                 type="text"
                                 name="duration"
                                 placeholder="e.g., 3 Days 2 Nights"
-                                className="w-full px-4 py-2 text-neutral border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2  border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
 
                         {/* Departure Location */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiMapPin className="mr-2" /> Departure Location
                             </label>
                             <input
                                 defaultValue={departureLocation}
                                 type="text"
                                 name="departureLocation"
-                                className="w-full px-4 py-2 text-neutral border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2  border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
 
                         {/* Destination */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiMapPin className="mr-2" /> Destination
                             </label>
                             <input
                                 defaultValue={destination}
                                 type="text"
                                 name="destination"
-                                className="w-full px-4 py-2 text-neutral border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2  border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
 
                         {/* Price */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiDollarSign className="mr-2" /> Price
                             </label>
                             <input
                                 defaultValue={price}
                                 type="number"
                                 name="price"
-                                className="w-full px-4 py-2 text-neutral border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2  border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
 
                         {/* Departure Date */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiCalendar className="mr-2" /> Departure Date
                             </label>
                             <DatePicker
@@ -189,7 +189,7 @@ function UpdateMyPosted() {
                                 onChange={(date) => setDepartureDate(date)}
                                 minDate={new Date()}
                                 name='date'
-                                className="w-full px-4 py-2 text-neutral border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2  border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
@@ -199,35 +199,35 @@ function UpdateMyPosted() {
 
                         {/* Package Details */}
                         <motion.div className="md:col-span-2" variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiInfo className="mr-2" /> Package Details
                             </label>
                             <textarea
                                 defaultValue={guidname}
                                 name="packageDetails"
                                 rows={4}
-                                className="w-full px-4 py-2 text-neutral border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2  border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
 
                         {/* Contact No */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiPhone className="mr-2" /> Contact Number
                             </label>
                             <input
                                 defaultValue={contactNo}
                                 type="tel"
                                 name="contactNo"
-                                className="w-full px-4 py-2 border text-neutral border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border  border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>
 
                         {/* Guide name (simulated file input) */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <FiUser className="mr-2" /> Guide Name
                             </label>
                             <input
@@ -237,11 +237,11 @@ function UpdateMyPosted() {
                                 type="text"
                                 // name="guidName"
 
-                                className="w-full px-4 py-2 border text-neutral border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border  border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             />
                         </motion.div>
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <MdAddPhotoAlternate className="mr-2" />  Guide Photo
                             </label>
                             <input
@@ -250,13 +250,13 @@ function UpdateMyPosted() {
                                 type="url"
                                 // name="guidePhoto"
 
-                                className="w-full px-4 py-2 border text-neutral border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border  border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                             />
                         </motion.div>
 
                         {/* Guide Email */}
                         <motion.div variants={itemVariants}>
-                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                            <label className="block text-sm font-medium  mb-1 flex items-center">
                                 <MdEmail className="mr-2" /> Guide Email
                             </label>
                             <input
@@ -264,7 +264,7 @@ function UpdateMyPosted() {
                                 readOnly
                                 type="email"
                                 // name="guideEmail"
-                                className="w-full px-4 py-2 border text-neutral border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                className="w-full px-4 py-2 border  border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 required
                             />
                         </motion.div>

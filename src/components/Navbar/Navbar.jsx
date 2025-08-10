@@ -70,12 +70,12 @@ function Navbar() {
                 <div className="  gap-6 ">
                     <div className="dropdown ">
 
-                        <div tabIndex={0} role="button" className=" text-neutral btn btn-ghost lg:hidden ">
+                        <div tabIndex={0} role="button" className="  btn btn-ghost lg:hidden ">
                             <CiMenuBurger className='text-4xl' />
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100  text-neutral rounded-box z-1 mt-3 w-52 p-2 shadow space-y-12  h-96 ">
+                            className="menu menu-sm dropdown-content bg-base-100   rounded-box z-1 mt-3 w-52 p-2 shadow space-y-12  h-96 ">
 
                             <div className='flex flex-col gap-15'>
                                 {navigation}

@@ -20,8 +20,14 @@ const destinations = [
         name: "Cox’s Bazar, Bangladesh",
         img: "https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/blogiJR0K1sWVNFzinGC_l4r3IdsVLyxZfkr.jpg",
         desc: "Home to the world's longest natural sea beach.",
-    }
-  ];
+    },
+    {
+        name: "Santorini, Greece",
+        img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+        desc: "Famous for stunning sunsets and whitewashed buildings.",
+    },
+  
+];
 
 export default function TopDestinations() {
     return (
@@ -45,11 +51,11 @@ export default function TopDestinations() {
                 </motion.p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 px-6 max-w-8xl mx-auto">
                 {destinations.map((dest, i) => (
                     <motion.div
                         key={i}
-                        className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition"
+                        className=" rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: i * 0.1 }}
@@ -57,8 +63,8 @@ export default function TopDestinations() {
                     >
                         <img src={dest.img} alt={dest.name} className="w-full h-48 object-cover" />
                         <div className="p-4">
-                            <h3 className="text-xl font-semibold mb-1 text-black">{dest.name}</h3>
-                            <p className="text-gray-500 text-sm">{dest.desc}</p>
+                            <h3 className="text-xl font-semibold mb-1 ">{dest.name}</h3>
+                            <p className="text-gray-400 text-sm">{dest.desc}</p>
                         </div>
                     </motion.div>
                 ))}

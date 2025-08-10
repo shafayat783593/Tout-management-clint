@@ -26,11 +26,11 @@ function AboutUs() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-center text-lg text-gray-600 mb-12"
+                className="text-center text-lg text-base-content/70 mb-12"
             >
                 We are passionate about creating unforgettable travel experiences. Our mission is to connect explorers with the best guides and destinations.
             </motion.p>
-
+        
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                
                 <motion.div
@@ -75,7 +75,7 @@ function AboutUs() {
                 transition={{ delay: 0.5 }}
                 className="mt-16 text-center"
             >
-                <p className="text-gray-700">
+                <p className="text-base-content/70">
                     Ready to explore with us?{" "}
                     <span onClick={() => navigate("/all-packages")}  className="font-semibold text-blue-600 cursor-pointer">Join now and start your journey!</span>
                 </p>

@@ -7,23 +7,7 @@
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark, dark, cupcake;
 }
-/* 
-@custom-variant dark (&:where(.dark, .dark *)); */
 
-/* @layer base {
-  html {
-    @apply transition-colors duration-300;
-  }
-
-  body {
-    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-300;
-  }
-} */
-
-/* @plugin "daisyui" {
-
-  themes: light --default;
-} */
 
 a.active {
   @apply bg-base-300

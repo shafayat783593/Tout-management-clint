@@ -90,7 +90,7 @@ export default function Home() {
           {packages?.slice(0, 6).map((pkg) => (
             <motion.div
               key={pkg._id}
-              className="bg-white shadow-md rounded-xl overflow-hidden"
+              className=" shadow-md rounded-xl overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -106,18 +106,18 @@ export default function Home() {
                     alt={pkg.guidname}
                     className="w-8 h-8 rounded-full object-cover"
                   />
-                  <p className="text-sm text-gray-700">{pkg.guidname}</p>
+                  <p className="text-sm text-gray-400">{pkg.guidname}</p>
                 </div>
 
-                <p className="flex items-center gap-2 text-sm text-gray-600">
+                <p className="flex items-center gap-2 text-sm ">
                   <FaClock className="text-blue-500" /> {pkg.duration}
                 </p>
 
-                <p className="flex items-center gap-2 text-sm text-gray-600">
+                <p className="flex items-center gap-2 text-sm ">
                   <FaCalendarAlt className="text-green-500" /> {pkg.date}
                 </p>
 
-                <p className="text-lg font-bold text-gray-800">{pkg.price}</p>
+                <p className="text-lg font-bold text-gray-400">{pkg.price}</p>
 
                 <button
                   onClick={() => user ? navigate(`/PackageDetails/${pkg._id}`) : navigate("/auth/login")}
@@ -155,40 +155,44 @@ export default function Home() {
       </section>
 
 
-      <section class=" py-12">
-
-
-
-        <div  class="max-w-6xl mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center mb-8">Exclusive Offers for You</h2>
-          <div class="grid md:grid-cols-3 gap-8">
-
-            {
-              spacilaoffer?.map(spacial => (
-
-                <div  key={spacial._id} class="bg-white shadow-lg rounded-xl overflow-hidden">
-                  <img src={spacial.photo} alt="Hotel Offer" class="w-full h-48 object-cover" />
-                  <div class="p-6">
-                    <h3 class="text-xl font-semibold">Luxury Beach Resort</h3>
-                    <p class="text-gray-500">Save up to <span>{spacial?.discount}</span>% on your stay!</p>
-                    <button
-                      onClick={() => user ? navigate(`/PackageDetails/${spacial._id}`) : navigate("/auth/login")}
-                      class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                      View Details
-                    </button>
-                  </div>
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8">Exclusive Offers for You</h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            {spacilaoffer?.map((spacial, i) => (
+              <motion.div
+                key={spacial._id}
+                className="  shadow-2xl rounded-xl overflow-hidden"
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                viewport={{ once: true }}
+              >
+                <img
+                  src={spacial.photo}
+                  alt="Hotel Offer"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold">Luxury Beach Resort</h3>
+                  <p className="text-gray-500">
+                    Save up to <span>{spacial?.discount}</span>% on your stay!
+                  </p>
+                  <button
+                    onClick={() =>
+                      user
+                        ? navigate(`/PackageDetails/${spacial._id}`)
+                        : navigate("/auth/login")
+                    }
+                    className="mt-4 cursor-pointer bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                  >
+                    View Details
+                  </button>
                 </div>
-
-              ))
-            }
-
-
-
-
-
+              </motion.div>
+            ))}
           </div>
         </div>
-
       </section>
 
 
