@@ -15,7 +15,7 @@ function AllPackages() {
 
     useEffect(() => {
 
-        axios("https://tour-management-server-ashen.vercel.app/appTourPackages").then(res => {
+        axios("http://localhost:3000/appTourPackages").then(res => {
             setTourData(res.data)
             setloading(false)
         }).catch(error => {
@@ -34,7 +34,7 @@ function AllPackages() {
 
     useEffect(() => {
 
-        axios.get(`https://tour-management-server-ashen.vercel.app/search?q=${encodeURIComponent(searchTerm)}`)
+        axios.get(`http://localhost:3000/search?q=${encodeURIComponent(searchTerm)}`)
             .then(res => {
                 setTourData(res.data);
             })

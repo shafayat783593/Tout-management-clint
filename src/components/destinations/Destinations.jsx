@@ -25,7 +25,7 @@ const destinations = [
 
 export default function TopDestinations() {
     return (
-        <div className="py-16 bg-base-200">
+        <div className="py-16 ">
             <div className="text-center mb-10">
                 <motion.h2
                     initial={{ opacity: 0, y: -30 }}

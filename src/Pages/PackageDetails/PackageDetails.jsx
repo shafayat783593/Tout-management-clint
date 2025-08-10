@@ -1,12 +1,15 @@
 import { useNavigate, useParams } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import UseAuth from "../../Hooks/UseAuth";
 import { format } from "date-fns";
 import Swal from "sweetalert2";
 import { useLoaderData } from "react-router";
 import axios from "axios";
-import { FaMapMarkerAlt, FaCalendarAlt, FaClock, FaMoneyBillWave, FaFlagCheckered, FaReceipt } from 'react-icons/fa';
+import {
+    FaMapMarkerAlt, FaCalendarAlt, FaClock,
+    FaMoneyBillWave, FaFlagCheckered, FaReceipt
+} from 'react-icons/fa';
 import Loading from "../../components/Loading/Loading";
 import PageTitle from "../../Hooks/PageTitle";
 
@@ -17,25 +20,39 @@ function PackageDetails() {
     const tour = useLoaderData();
     const navigate = useNavigate();
     const [BookingCount, setBookingCount] = useState(tour.bookingCount || 0);
-   
+
+    // Parse price and discount as numbers
+    const price = Number(tour.price);
+    const discount = Number(tour.discount || 0);
+
+    // Calculate discounted price if special package and discount exists
+    const discountedPrice = useMemo(() => {
+        if (tour.specialPackage === "yes" && discount > 0) {
+            return (price - (price * discount / 100)).toFixed(2);
+        }
+        return null;
+    }, [price, discount, tour.specialPackage]);
 
     const handleBooking = async () => {
-        // if (!user) {
-        //     Swal.fire("Error", "Please login to book a tour", "error");
-        //     return;
-        // }
+        if (!user) {
+            Swal.fire("Error", "Please login to book a tour", "error");
+            return;
+        }
 
         if (user?.email === tour?.guidEmail) {
-            Swal.fire("Oh ! It's Your Post");
-            return navigate("/all-packages")
+            Swal.fire("Oh! It's Your Post");
+            return navigate("/all-packages");
         }
+
+        // Use discountedPrice if exists, else original price
+        const finalPrice = discountedPrice ? Number(discountedPrice) : price;
 
         const booking = {
             tourId: tour._id,
             tourName: tour.tourName,
-            price: tour.price,
+            price: finalPrice,
             guidname: tour.guidname,
-            guidemail: tour?.email,
+            guidemail: tour?.guidEmail,
             buyerName: user.displayName,
             buyerEmail: user.email,
             contactNo: tour?.contactNo,
@@ -46,13 +63,11 @@ function PackageDetails() {
             status: "pending"
         };
 
-
         try {
-            const bookingResponse = await axios.post("https://tour-management-server-ashen.vercel.app/bookTourPackage", booking);
+            const bookingResponse = await axios.post("http://localhost:3000/bookTourPackage", booking);
 
             if (bookingResponse.data.insertedId) {
-
-                const countResponse = await axios.patch(`https://tour-management-server-ashen.vercel.app/bookingCount/${tour._id}`);
+                const countResponse = await axios.patch(`http://localhost:3000/bookingCount/${tour._id}`);
 
                 if (countResponse.data.modifiedCount > 0) {
                     setBookingCount(prev => prev + 1);
@@ -94,6 +109,11 @@ function PackageDetails() {
                 </div>
 
                 <div className="space-y-2 mb-6">
+                    <p className="text-shadow-gray-800 text-2xl font-bold">
+                        Special package:{" "}
+                        <span className="text-green-700">{tour?.specialPackage || "No"}</span>
+                    </p>
+
                     <p className="flex items-center gap-2">
                         <FaMapMarkerAlt className="text-blue-600" /> Departure: {tour.departureLocation}
                     </p>
@@ -104,11 +124,20 @@ function PackageDetails() {
                         <FaClock className="text-blue-600" /> Duration: {tour.duration}
                     </p>
                     <p className="flex items-center gap-2">
-                        <FaMoneyBillWave className="text-blue-600" /> Price: ${tour.price}
+                        <FaMoneyBillWave className="text-blue-600" /> Price: $
+                        {discountedPrice ? (
+                            <>
+                                <span className="line-through text-gray-400 mr-2">${price.toFixed(2)}</span>
+                                <span className="text-green-600 font-semibold">${discountedPrice}</span>
+                            </>
+                        ) : (
+                            price.toFixed(2)
+                        )}
                     </p>
                     <p className="flex items-center gap-2">
                         <FaFlagCheckered className="text-blue-600" /> Destination: {tour.destination || "N/A"}
                     </p>
+
                     <p className="flex items-center gap-2">
                         <FaReceipt className="text-blue-600" /> Bookings: {BookingCount}
                     </p>
@@ -133,10 +162,10 @@ function PackageDetails() {
                             <h2 className="text-xl text-info font-semibold mb-4">Book This Tour</h2>
                             <div className="space-y-2 mb-4">
                                 <p className="text-neutral"><strong>Package:</strong> {tour.tourName}</p>
-                                <p className="text-neutral"><strong>Price:</strong> ${tour.price}</p>
+                                <p className="text-neutral"><strong>Price:</strong> ${discountedPrice ?? price.toFixed(2)}</p>
                                 <p className="text-neutral"><strong>Name:</strong> {user?.displayName}</p>
                                 <p className="text-neutral"><strong>Email:</strong> {user?.email}</p>
-                                <p className="text-neutral"><strong>Date:</strong> {format(new Date(), 'yyyy-MM-dd')}</p>
+                                <p className="text-neutral"><strong>Date:</strong> {format(new Date(), "yyyy-MM-dd")}</p>
                             </div>
 
                             <textarea

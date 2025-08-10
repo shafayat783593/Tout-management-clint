@@ -17,7 +17,10 @@ const TourForm = () => {
     const [submitting, setSubmitting] = useState(false);
     const { user } = UseAuth()
     const navigate = useNavigate()
- 
+    const [showSpecialField, setShowSpecialField] = useState(false);
+    const [specialPackage, setSpecialPackage] = useState("");
+
+    const [discount, setDiscount] = useState("");
 
     //   const handleImageChange = (e) => {
     //     const file = e.target.files[0];
@@ -38,7 +41,8 @@ const TourForm = () => {
 
         const formData = new FormData(form)
         const newtravels = Object.fromEntries(formData.entries())
-        newtravels.guidname = user?.displayName
+        newtravels.discount = specialPackage ? discount : null,
+            newtravels.guidname = user?.displayName
         newtravels.guidEmail = user?.email
         newtravels.guidPhoto = user?.photoURL
         // newtravels.bookingCounts= bookingCount
@@ -48,11 +52,11 @@ const TourForm = () => {
 
 
 
-        axios.post("https://tour-management-server-ashen.vercel.app/addTourPackages", newtravels).then(function (response) {
+        axios.post("http://localhost:3000/addTourPackages", newtravels).then(function (response) {
             // console.log(response.data);
         })
             .catch(function (error) {
-              
+
             });
 
         // console.log('Form Data:', newtravels);
@@ -125,6 +129,8 @@ const TourForm = () => {
                             />
                         </motion.div>
 
+
+
                         {/* Image Upload */}
                         <motion.div variants={itemVariants}>
                             <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
@@ -193,6 +199,52 @@ const TourForm = () => {
                                 required
                             />
                         </motion.div>
+
+                        <motion.div variants={itemVariants}>
+                            <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                                Is this a special package?
+                            </label>
+                            <div className="flex items-center gap-6">
+                                <label className="flex items-center gap-2 text-gray-500">
+                                    <input
+                                        type="radio"
+                                        name="specialPackage"
+                                        value="yes"
+                                        checked={specialPackage === true}
+                                        onChange={() => setSpecialPackage(true)}
+                                        className="radio radio-primary"
+                                    />
+                                    Yes
+                                </label>
+                                <label className="flex items-center gap-2 text-gray-500">
+                                    <input
+                                        type="radio"
+                                        name="specialPackage"
+                                        value="no"
+                                        checked={specialPackage === false}
+                                        onChange={() => setSpecialPackage(false)}
+                                        className="radio  "
+                                    />
+                                    No
+                                </label>
+                            </div>
+                        </motion.div>
+
+                        {/* Discount Field */}
+                        {specialPackage && (
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center  ">Discount (%)</label>
+                                <input
+                                    type="number"
+                                    value={discount}
+                                    onChange={(e) => setDiscount(e.target.value)}
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 text-neutral focus:ring-indigo-500 focus:border-indigo-500"
+                                    placeholder="Enter discount percentage"
+                                    min="0"
+                                    max="100"
+                                />
+                            </div>
+                        )}
 
                         {/* Departure Date */}
                         <motion.div variants={itemVariants}>
@@ -280,6 +332,7 @@ const TourForm = () => {
                                 required
                             />
                         </motion.div>
+
 
                         {/* Submit Button */}
                         <motion.div

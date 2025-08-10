@@ -1,22 +1,35 @@
 
 import { motion } from "framer-motion";
 import { useLoaderData, useNavigate } from "react-router";
-import banner from "../../assets/tourbanner.jpg"
+import banner from "../../assets/banner.jpg"
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "../Loading/Loading";
-
+import { useQuery } from '@tanstack/react-query';
 import { FaClock, FaCalendarAlt } from "react-icons/fa";
 import UseAuth from "../../Hooks/UseAuth";
 import Carousel from "../Carousel/Carousel";
 import TopDestinations from "../destinations/Destinations";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 export default function Home() {
   const [loading, setloading] = useState(true)
   const [packages, setpackages] = useState([])
   const { user } = UseAuth()
+  const axiosSecure = UseAxiosSecure()
+
+
+  const { data: spacilaoffer = [], error, isPending, isError, } = useQuery({
+    queryKey: ['spacilaoffer'],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/spacialOffer");
+      return res.data;
+    }
+  })
+  console.log("spical offer", spacilaoffer)
+
   useEffect(() => {
 
-    axios("https://tour-management-server-ashen.vercel.app/appTourPackages").then(res => {
+    axios("http://localhost:3000/appTourPackages").then(res => {
       setpackages(res.data)
       setloading(false)
     }).catch(error => {
@@ -24,6 +37,9 @@ export default function Home() {
       setloading(false);
     })
   }, [])
+
+
+
 
 
   const navigate = useNavigate();
@@ -35,35 +51,34 @@ export default function Home() {
     <div className="text-center px-4">
       {/* Hero Banner */}
       <motion.section
-        className="relative h-[90vh] flex items-center justify-center text-white px-4 bg-cover bg-center"
+        className="relative h-[50vh] md:h-[90vh]  flex items-center justify-center text-white px-4 bg-cover bg-center rounded-3xl mt-5"
         style={{
           backgroundImage: `url(${banner})`,
+          filter: "brightness(0.8)", // slightly darkens the image itself
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-      
-        <div className="absolute inset-0  bg-opacity-60 z-0" />
-
         {/* Content */}
         <div className="relative z-10 text-center max-w-2xl">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-[0_4px_6px_rgba(0,0,0,0.7)]">
             Discover Breathtaking Journeys
           </h1>
-          <p className="text-lg md:text-xl mb-6 ">
+          <p className="text-lg text-white md:text-xl mb-6 drop-shadow-[0_3px_4px_rgba(0,0,0,0.7)]">
             Explore handpicked tours and adventure trips made just for you.
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => navigate("/all-packages")}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold"
+            className=" cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg"
           >
             Explore All Packages
           </motion.button>
         </div>
       </motion.section>
+
 
 
 
@@ -138,6 +153,47 @@ export default function Home() {
       <section className="my-4">
         <TopDestinations />
       </section>
+
+
+      <section class=" py-12">
+
+
+
+        <div  class="max-w-6xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center mb-8">Exclusive Offers for You</h2>
+          <div class="grid md:grid-cols-3 gap-8">
+
+            {
+              spacilaoffer?.map(spacial => (
+
+                <div  key={spacial._id} class="bg-white shadow-lg rounded-xl overflow-hidden">
+                  <img src={spacial.photo} alt="Hotel Offer" class="w-full h-48 object-cover" />
+                  <div class="p-6">
+                    <h3 class="text-xl font-semibold">Luxury Beach Resort</h3>
+                    <p class="text-gray-500">Save up to <span>{spacial?.discount}</span>% on your stay!</p>
+                    <button
+                      onClick={() => user ? navigate(`/PackageDetails/${spacial._id}`) : navigate("/auth/login")}
+                      class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                      View Details
+                    </button>
+                  </div>
+                </div>
+
+              ))
+            }
+
+
+
+
+
+          </div>
+        </div>
+
+      </section>
+
+
+
+
     </div>
   );
 }

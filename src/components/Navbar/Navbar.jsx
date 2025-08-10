@@ -1,9 +1,10 @@
 import React, { use } from 'react'
 import { CiMenuBurger } from "react-icons/ci";
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 // import { CiMenuBurger } from "react-icons/ci";
 import logo from "../.././assets/logo.png"
 import UseAuth from '../../Hooks/UseAuth';
+import { toast } from 'react-toastify';
 
 // import { FaMoon } from "react-icons/fa6";
 // import { GoSun } from "react-icons/go";
@@ -11,18 +12,24 @@ function Navbar() {
     // const { darkMode, setdarkMode } = use(ThemContext)
 
     const { user, logOut } = UseAuth()
-   
+    console.log(user?.email)
+    const navigate = useNavigate()
 
 
 
 
     const handleLogout = () => {
-        logOut().then(() => {
+        logOut()
+            .then(() => {
+                toast.success("Logged out successfully");
+                navigate("/")
+            })
+            .catch((err) => {
+                toast.error("Logout failed");
+                console.error(err);
+            });
+    };
 
-        }).catch((error) => {
-
-        });
-    }
 
 
 
@@ -38,6 +45,8 @@ function Navbar() {
 
 
     );
+
+
     const profileDropdown = (
         <>
 
@@ -46,13 +55,18 @@ function Navbar() {
 
 
         </>
+
+
+
     )
+
+
     return (
 
 
         <>
 
-            <div className="navbar bg-base-100   shadow-sm w-full mx-auto  ">
+            <div className="navbar bg-base-100   shadow-md w-full mx-auto  sticky top-0 z-100 ">
                 <div className="  gap-6 ">
                     <div className="dropdown ">
 
@@ -95,11 +109,16 @@ function Navbar() {
                                     </label>
 
                                 </div>
+
+
+
                             </div>
 
 
 
                         </ul>
+
+
                     </div>
 
 
@@ -135,38 +154,54 @@ function Navbar() {
 
                         <div className='login-btn flex items-center gap-3'>
 
-
                             {user && (
-                                <div className="dropdown dropdown-hover mr-30 lg:ml-0">
-                                    <img className='w-50 rounded-4xl' src={user?.photoURL} alt="" />
-                                    {/* <img  className=' w-12 rounded-full' src={user?.photoURL} alt="" /> */}
+                                <div className="dropdown dropdown-hover lg:ml-0">
+                                    <img
+                                        className="w-10 lg:w-30 rounded-4xl"
+                                        src={user?.photoURL}
+                                        alt={user?.displayName}
+                                    />
 
+                                    <ul
+                                        tabIndex={0}
+                                        className="
+  space-y-4 mr-0 dropdown-content menu bg-base-100 rounded-box 
+    z-50 w-52 p-2 shadow-sm
+    lg:left-auto lg:translate-x-0
+    left-[-50%] -translate-x-1/2 top-full
+      "
+                                    >
+                                        {user && profileDropdown}
 
-                                    <ul tabIndex={0} className=" space-y-4 dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                                        {
-                                            user && profileDropdown
-                                        }
-
-                                        <Link to="/auth/register" onClick={handleLogout} className="cursor-pointer bg-gradient-to-b from-indigo-500 to-indigo-600 shadow-[0px_4px_32px_0_rgba(99,102,241,.70)] px-6 py-3 rounded-xl border-[1px] border-slate-500 text-white font-medium group">
+                                        <Link
+                                            to="/auth/register"
+                                            onClick={handleLogout}
+                                            className="cursor-pointer bg-gradient-to-b from-blue-500 to-blue-600 shadow-[0px_4px_32px_0_rgba(99,102,241,.70)] px-6 py-3 rounded-xl border-[1px] border-slate-500 text-white font-medium group"
+                                        >
                                             <div className="relative overflow-hidden">
-                                                <p className="group-hover:-translate-y-7 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">LogOut</p>
-                                                <p className="absolute top-7 left-0 group-hover:top-0 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">LogOut</p>
+                                                <p className="group-hover:-translate-y-7 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
+                                                    LogOut
+                                                </p>
+                                                <p className="absolute top-7 left-0 group-hover:top-0 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
+                                                    LogOut
+                                                </p>
                                             </div>
                                         </Link>
                                     </ul>
                                 </div>
                             )}
+
                         </div>
                         <div className="flex">
                             {!user && (
                                 <div className="flex">
-                                    <Link to="/auth/login" className="cursor-pointer bg-gradient-to-b from-indigo-500 to-indigo-600 shadow-[0px_4px_32px_0_rgba(99,102,241,.70)] px-6 py-3 rounded-xl border-[1px] border-slate-500 text-white font-medium group">
+                                    <Link to="/auth/login" className="cursor-pointer bg-gradient-to-b from-blue-500 to-blue-600 shadow-[0px_4px_32px_0_rgba(99,102,241,.70)] px-6 py-3 rounded-xl border-[1px] border-slate-500 text-white font-medium group">
                                         <div className="relative overflow-hidden">
                                             <p className="group-hover:-translate-y-7 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">Login</p>
                                             <p className="absolute top-7 left-0 group-hover:top-0 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">Login</p>
                                         </div>
                                     </Link>
-                                    <Link to="/auth/register" className="cursor-pointer bg-gradient-to-b from-indigo-500 to-indigo-600 shadow-[0px_4px_32px_0_rgba(99,102,241,.70)] px-6 py-3 rounded-xl border-[1px] border-slate-500 text-white font-medium group">
+                                    <Link to="/auth/register" className="cursor-pointer bg-gradient-to-b from-blue-500 to-blue-600 shadow-[0px_4px_32px_0_rgba(99,102,241,.70)] px-6 py-3 rounded-xl border-[1px] border-slate-500 text-white font-medium group">
                                         <div className="relative overflow-hidden">
                                             <p className="group-hover:-translate-y-7 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">Register</p>
                                             <p className="absolute top-7 left-0 group-hover:top-0 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">Register</p>

@@ -16,7 +16,7 @@ function UpdateMyPosted() {
         , guidEmail, duration, destination, departureLocation, _id } = useLoaderData()
 
     const { user } = UseAuth()
- 
+
 
 
     const [submitting, setSubmitting] = useState(false);
@@ -30,7 +30,7 @@ function UpdateMyPosted() {
         const formData = new FormData(form)
         const updateMyPosted = Object.fromEntries(formData.entries())
 
-        axios.put(`https://tour-management-server-ashen.vercel.app/updateTourPackages/${_id}`, updateMyPosted).then(res => {
+        axios.put(`http://localhost:3000/updateTourPackages/${_id}`, updateMyPosted).then(res => {
 
 
             setTimeout(() => {
@@ -48,7 +48,7 @@ function UpdateMyPosted() {
 
 
         }).catch(error => {
-         
+
         })
     }
 

@@ -8,9 +8,10 @@ function AuthProvider({ children }) {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
- 
+    console.log(user)
 
-    
+
+
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -31,7 +32,7 @@ function AuthProvider({ children }) {
 
 
     const googleLogin = () => {
-        return signInWithPopup(auth, provider); // both arguments are required
+        return signInWithPopup(auth, provider);
     };
     const logOut = () => {
         return signOut(auth)
@@ -45,20 +46,20 @@ function AuthProvider({ children }) {
     // forget passwordd................
     const forgetPassword = (email) => {
         return sendPasswordResetEmail(auth, email)
-
-
     }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
+            console.log(currentUser?.email)
+
             if (currentUser?.email) {
-                axios.post("https://tour-management-server-ashen.vercel.app/jwt", {
+                axios.post("http://localhost:3000/jwt", {
                     email: currentUser?.email
                 }).then(res => {
 
                 })
-            } 
+            }
             setLoading(false)
         })
         return () => {
@@ -81,7 +82,8 @@ function AuthProvider({ children }) {
     }
 
     return <AuthContext value={authData}>
-        {children}</AuthContext>
+        {children}
+    </AuthContext>
 }
 
 export default AuthProvider

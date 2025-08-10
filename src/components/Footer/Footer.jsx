@@ -41,7 +41,7 @@ const Footer = () => {
                             <FaInstagram className="text-2xl hover:text-pink-500 cursor-pointer" />
                             </Link>
 
-                            <Link to="https://twitter-cl.vercel.app/login"> 
+                            <Link to="https://www.linkedin.com/in/md-shafayat-hosan"> 
                             
                             
                             <FaLinkedin className="text-2xl hover:text-blue-700 cursor-pointer" />
