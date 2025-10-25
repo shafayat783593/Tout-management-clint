@@ -58,32 +58,32 @@ function AuthProvider({ children }) {
                     email: currentUser?.email
                 }).then(res => {
 
-                })
-            }
+                    })
+    }
             setLoading(false)
         })
-        return () => {
-            unsubscribe()
-        }
+return () => {
+    unsubscribe()
+}
     }, [])
 
-    const authData = {
-        user,
-        setUser,
-        createUser,
-        logOut,
-        signIn,
-        loading,
-        setLoading,
-        updateUser,
-        googleLogin,
-        github,
-        forgetPassword
-    }
+const authData = {
+    user,
+    setUser,
+    createUser,
+    logOut,
+    signIn,
+    loading,
+    setLoading,
+    updateUser,
+    googleLogin,
+    github,
+    forgetPassword
+}
 
-    return <AuthContext value={authData}>
-        {children}
-    </AuthContext>
+return <AuthContext value={authData}>
+    {children}
+</AuthContext>
 }
 
 export default AuthProvider

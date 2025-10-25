@@ -5,6 +5,7 @@ import { Link, NavLink, useNavigate } from 'react-router';
 import logo from "../.././assets/logo.png"
 import UseAuth from '../../Hooks/UseAuth';
 import { toast } from 'react-toastify';
+import UseUserRole from '../../Hooks/UserRoll';
 
 // import { FaMoon } from "react-icons/fa6";
 // import { GoSun } from "react-icons/go";
@@ -16,7 +17,7 @@ function Navbar() {
     const navigate = useNavigate()
 
 
-
+const{ role, roleLoading } = UseUserRole()
 
     const handleLogout = () => {
         logOut()
@@ -41,25 +42,38 @@ function Navbar() {
             {
                 user && <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : ""}  m-2 font-medium text-xl hover:text-[#378acf]`} to="/myBooking">My Bookings</NavLink>
             }
+
+            {!roleLoading && role === "admin" && (
+                <NavLink
+                    className={({ isActive }) =>
+                        `${isActive ? "underline text-[#72bbf6]" : ""} m-2 font-medium text-xl hover:text-[#378acf]`
+                    }
+                    to="/dashboard"
+                >
+                    Dashboard
+                </NavLink>
+            )}
         </>
+
 
 
     );
 
 
-    const profileDropdown = (
-        <>
-
-            <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : ""} m-2 font-medium text-xl hover:text-[#378acf]`} to="/add-pakage">Add Package</NavLink>
-            <NavLink className={({ isActive }) => `${isActive ? "underline text-[#72bbf6]" : ""}  m-2 font-medium text-xl hover:text-[#378acf]`} to="/manageMyPackages">Manage My Packages</NavLink>
-
-
-        </>
-
-
-
-    )
-
+    // const profileDropdown = (
+    //     <>
+    //         {!roleLoading && role === "admin" && (
+    //             <NavLink
+    //                 className={({ isActive }) =>
+    //                     `${isActive ? "underline text-[#72bbf6]" : ""} m-2 font-medium text-xl hover:text-[#378acf]`
+    //                 }
+    //                 to="/dashboard"
+    //             >
+    //                 Dashboard
+    //             </NavLink>
+    //         )}
+    //     </>
+    // );
 
     return (
 
@@ -79,6 +93,9 @@ function Navbar() {
 
                             <div className='flex flex-col gap-15'>
                                 {navigation}
+
+
+                                
 
                                 <div className='block lg:hidden'>
 
@@ -156,17 +173,24 @@ function Navbar() {
 
                             {user && (
                                 <div className="dropdown dropdown-hover lg:ml-0">
+
+                                    <Link
+                                        to="/profileUpdate" 
+                                    >
+                                    
+                                    
                                     <img
-                                        className="w-10 lg:w-30 rounded-4xl"
+                                        className="w-10 lg:w-30 rounded-4xl cursor-pointer"
                                         src={user?.photoURL}
                                         alt={user?.displayName}
                                     />
+                                    </Link>
 
                                     <ul
                                         tabIndex={0}
                                         className="space-y-4 mr-0 dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 shadow-smlg:left-auto lg:translate-x-0left-[-50%] -translate-x-1/2 top-full"
                                     >
-                                        {user && profileDropdown}
+                                        {/* {user && profileDropdown} */}
 
                                         <Link
                                             to="/auth/register"
@@ -182,6 +206,23 @@ function Navbar() {
                                                 </p>
                                             </div>
                                         </Link>
+
+                                        {/* <Link
+                                            to="/profileUpdate"
+                                            className="cursor-pointer bg-gradient-to-b from-blue-500 to-blue-600 shadow-[0px_4px_32px_0_rgba(99,102,241,.70)] px-6 py-3 rounded-xl border-[1px] border-slate-500 text-white font-medium group"
+
+                                        
+                                        >
+                                            <div className="relative overflow-hidden">
+                                                <p className="group-hover:-translate-y-7 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
+                                                 Profile
+                                                </p>
+                                                <p className="absolute top-7 left-0 group-hover:top-0 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
+                                                Profile
+                                                </p>
+                                            </div>
+                                        
+                                        </Link> */}
                                     </ul>
                                 </div>
                             )}

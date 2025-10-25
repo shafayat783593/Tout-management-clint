@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import logo from "../.././assets/logo.png";
 import { Link } from "react-router"; // Fixed import
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
     const fadeIn = {
@@ -32,7 +33,7 @@ const Footer = () => {
                             </Link>
                             <Link to="https://www.youtube.com/@shapashapa1676">
 
-                            <FaTwitter className="text-2xl hover:text-sky-400 cursor-pointer" />
+                                <FaXTwitter className="text-2xl hover:text-sky-400 cursor-pointer" />
                             </Link>
 
                             <Link to="https://www.instagram.com/safayet302/?fbclid=IwY2xjawK-cwtleHRuA2FlbQIxMABicmlkETF3cEdWQlE4bHRqM0t6cW5EAR6e9lBuK_2mzzj9JgMfMHTRUgwTM0vTqmHZxWQwuc4TZR7lvFwuZ7klL2FUdg_aem_XsZvkmZQxAmuthyb-NMeQw#">

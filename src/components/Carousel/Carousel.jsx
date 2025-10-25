@@ -14,11 +14,11 @@ export default function AutoCarousel() {
     useEffect(() => {
         axios("https://tour-management-server-ashen.vercel.app/appTourPackages")
             .then((res) => {
-                setData(res.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+            setData(res.data);
+        })
+                .catch((error) => {
+                    console.error(error);
+                });
     }, []);
 
     useEffect(() => {

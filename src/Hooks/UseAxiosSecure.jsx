@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 const axiosInstance = axios.create({
     baseURL: "https://tour-management-server-ashen.vercel.app",
+    // baseURL: "https://tour-management-server-ashen.vercel.app"
 });
 
 function UseAxiosSecure() {

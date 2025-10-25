@@ -73,7 +73,26 @@ function PackageDetails() {
                     setBookingCount(prev => prev + 1);
                     Swal.fire("Success", "Booking submitted successfully!", "success");
                     setShowModal(false);
-                    navigate("/myBooking");
+
+                    console.log("✅ Booking created with ID:", bookingResponse.data.insertedId);
+
+                    // ✅ FIXED: Create the complete booking object with the new ID
+                    const completeBooking = {
+                        _id: bookingResponse.data.insertedId,
+                        ...booking,
+                        createdAt: new Date().toISOString(),
+                        paymentStatus: "unpaid"
+                    };
+
+                    console.log("📦 Complete booking data:", completeBooking);
+
+                    // ✅ FIXED: Navigate with booking data in state
+                    navigate(`/payment/${bookingResponse.data.insertedId}`, {
+                        state: {
+                            booking: completeBooking,
+                            amount: finalPrice
+                        }
+                    });
                 }
             }
         } catch (error) {
